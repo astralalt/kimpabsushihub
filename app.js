@@ -926,6 +926,10 @@ function updateCartDisplay() {
     var stickyCount = document.getElementById('stickyCartCount');
     if (stickyCount) stickyCount.textContent = totalItems;
 
+    // Sync floating cart button count
+    var floatingCount = document.getElementById('floatingCartCount');
+    if (floatingCount) floatingCount.textContent = totalItems;
+
     // Update delivery cost info in cart
     var deliveryInfo = document.getElementById('cartDeliveryInfo');
     if (deliveryInfo && cart.length > 0) {
