@@ -1616,10 +1616,6 @@
                 height: 40px;
             }
 
-            /* Floating cart button on mobile */
-            .floating-cart-btn {
-                display: flex;
-            }
         }
 
         /* Floating Cart Button (mobile only) */
@@ -1667,6 +1663,12 @@
             font-size: 0.7rem;
             font-weight: 700;
             box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 768px) {
+            .floating-cart-btn {
+                display: flex;
+            }
         }
     </style>
 </head>
