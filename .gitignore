@@ -1,0 +1,12 @@
+# Dev files
+.claude/
+start-server.bat
+test-language.html
+PREVIEW.md
+VISUAL-GUIDE.md
+README.md
+AdminMenu.xlsx
+menu-data.csv
+package.json
+mnt/
+nul
