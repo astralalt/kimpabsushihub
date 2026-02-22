@@ -437,10 +437,7 @@ function saveCustomerInfo() {
         name: document.getElementById('customerName').value,
         phone: document.getElementById('customerPhone').value,
         address: document.getElementById('deliveryAddress').value,
-        house: document.getElementById('deliveryHouse').value,
         flat: document.getElementById('deliveryFlat').value,
-        floor: document.getElementById('deliveryFloor').value,
-        entrance: document.getElementById('deliveryEntrance').value,
         entranceCode: document.getElementById('deliveryEntranceCode').value
     };
     localStorage.setItem('customerInfo', JSON.stringify(info));
@@ -454,10 +451,7 @@ function loadCustomerInfo() {
             if (info.name) document.getElementById('customerName').value = info.name;
             if (info.phone) document.getElementById('customerPhone').value = info.phone;
             if (info.address) document.getElementById('deliveryAddress').value = info.address;
-            if (info.house) document.getElementById('deliveryHouse').value = info.house;
             if (info.flat) document.getElementById('deliveryFlat').value = info.flat;
-            if (info.floor) document.getElementById('deliveryFloor').value = info.floor;
-            if (info.entrance) document.getElementById('deliveryEntrance').value = info.entrance;
             if (info.entranceCode) document.getElementById('deliveryEntranceCode').value = info.entranceCode;
         } catch (e) {
             // Ignore corrupted data
@@ -1266,10 +1260,7 @@ function submitOrder(event) {
         customerPhone: document.getElementById('customerPhone').value,
         orderType: document.querySelector('input[name="orderType"]:checked').value,
         deliveryAddress: document.getElementById('deliveryAddress').value,
-        deliveryHouse: document.getElementById('deliveryHouse').value,
         deliveryFlat: document.getElementById('deliveryFlat').value,
-        deliveryFloor: document.getElementById('deliveryFloor').value,
-        deliveryEntrance: document.getElementById('deliveryEntrance').value,
         deliveryEntranceCode: document.getElementById('deliveryEntranceCode').value,
         payment: document.querySelector('input[name="payment"]:checked').value,
         notes: document.getElementById('orderNotes').value,
@@ -1391,10 +1382,7 @@ function sendTelegramNotification(orderData) {
     if (orderData.orderType === 'delivery') {
         msg += '🚗 *Доставка*\n';
         msg += '📍 ' + orderData.deliveryAddress;
-        if (orderData.deliveryHouse) msg += ', д.' + orderData.deliveryHouse;
         if (orderData.deliveryFlat) msg += ', кв.' + orderData.deliveryFlat;
-        if (orderData.deliveryFloor) msg += ', эт.' + orderData.deliveryFloor;
-        if (orderData.deliveryEntrance) msg += ', подъезд ' + orderData.deliveryEntrance;
         if (orderData.deliveryEntranceCode) msg += ', код: ' + orderData.deliveryEntranceCode;
         msg += '\n\n';
     } else {
@@ -1447,7 +1435,6 @@ function showSuccess(orderData) {
     document.getElementById('orderNumber').textContent = orderData.orderNumber;
 
     var fullAddr = orderData.deliveryAddress;
-    if (orderData.deliveryHouse) fullAddr += ', ' + orderData.deliveryHouse;
     if (orderData.deliveryFlat) fullAddr += ', ' + (currentLanguage === 'ru' ? 'кв.' : '호') + orderData.deliveryFlat;
 
     const orderTypeText = orderData.orderType === 'pickup'
