@@ -1087,9 +1087,12 @@ function initPickupMap() {
     var shopLocation = new kakao.maps.LatLng(36.8185, 127.0020);
     pickupMap = new kakao.maps.Map(mapDiv, {
         center: shopLocation,
-        level: 3,
-        scrollwheel: false
+        level: 3
     });
+
+    // Add zoom control
+    var zoomControl = new kakao.maps.ZoomControl();
+    pickupMap.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
     var marker = new kakao.maps.Marker({
         map: pickupMap,
@@ -1117,6 +1120,10 @@ function initDeliveryMap() {
         center: dunpoCenter,
         level: 5
     });
+
+    // Add zoom control
+    var zoomControl2 = new kakao.maps.ZoomControl();
+    deliveryMap.addControl(zoomControl2, kakao.maps.ControlPosition.RIGHT);
 
     // Add shop marker
     var shopMarker = new kakao.maps.Marker({
