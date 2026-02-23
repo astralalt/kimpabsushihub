@@ -988,7 +988,7 @@ function openCheckout() {
     // Init the correct map based on selected order type
     const deliveryType = document.querySelector('input[name="orderType"]:checked');
     if (deliveryType && deliveryType.value === 'delivery') {
-        if (deliveryMap) setTimeout(function() { deliveryMap.invalidateSize(); }, 300);
+        if (deliveryMap) setTimeout(function() { deliveryMap.relayout(); }, 300);
     } else {
         setTimeout(function() { initPickupMap(); }, 300);
     }
@@ -1043,6 +1043,12 @@ function closeCheckout() {
 
 let deliveryMap = null;
 let deliveryMarker = null;
+let kakaoGeocoder = null;
+
+function getKakaoGeocoder() {
+    if (!kakaoGeocoder) kakaoGeocoder = new kakao.maps.services.Geocoder();
+    return kakaoGeocoder;
+}
 
 function toggleDeliveryFields() {
     const deliveryType = document.querySelector('input[name="orderType"]:checked').value;
@@ -1071,120 +1077,121 @@ function toggleDeliveryFields() {
 var pickupMap = null;
 function initPickupMap() {
     if (pickupMap) {
-        pickupMap.invalidateSize();
+        pickupMap.relayout();
         return;
     }
 
     var mapDiv = document.getElementById('pickupMap');
     if (!mapDiv) return;
 
-    var shopLocation = [36.8185, 127.0020];
-    pickupMap = L.map('pickupMap', {
-        scrollWheelZoom: false,
-        dragging: true,
-        zoomControl: true
-    }).setView(shopLocation, 16);
+    var shopLocation = new kakao.maps.LatLng(36.8185, 127.0020);
+    pickupMap = new kakao.maps.Map(mapDiv, {
+        center: shopLocation,
+        level: 3,
+        scrollwheel: false
+    });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; CARTO',
-        maxZoom: 19,
-        subdomains: 'abcd'
-    }).addTo(pickupMap);
+    var marker = new kakao.maps.Marker({
+        map: pickupMap,
+        position: shopLocation
+    });
 
-    L.marker(shopLocation, {
-        icon: L.divIcon({
-            className: '',
-            html: '<div style="font-size:1.8rem;text-align:center;">🍣</div>',
-            iconSize: [36, 36],
-            iconAnchor: [18, 18]
-        })
-    }).addTo(pickupMap).bindPopup('김밥 & SUSHI HUB').openPopup();
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="padding:8px 12px;font-size:13px;font-weight:600;white-space:nowrap;">🍣 김밥 & SUSHI HUB</div>'
+    });
+    infowindow.open(pickupMap, marker);
 }
 
 function initDeliveryMap() {
     if (deliveryMap) {
-        deliveryMap.invalidateSize();
+        deliveryMap.relayout();
         return;
     }
 
-    // Center on Dunpo-myeon, Asan, South Korea
-    const dunpoCenter = [36.8185, 127.0020];
-    deliveryMap = L.map('deliveryMap').setView(dunpoCenter, 14);
+    var mapDiv = document.getElementById('deliveryMap');
+    if (!mapDiv) return;
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; CARTO',
-        maxZoom: 19,
-        subdomains: 'abcd'
-    }).addTo(deliveryMap);
+    // Center on Dunpo-myeon, Asan, South Korea
+    var dunpoCenter = new kakao.maps.LatLng(36.8185, 127.0020);
+    deliveryMap = new kakao.maps.Map(mapDiv, {
+        center: dunpoCenter,
+        level: 5
+    });
 
     // Add shop marker
-    L.marker(dunpoCenter, {
-        icon: L.divIcon({
-            className: '',
-            html: '<div style="font-size:1.5rem;text-align:center;">🍣</div>',
-            iconSize: [30, 30],
-            iconAnchor: [15, 15]
-        })
-    }).addTo(deliveryMap).bindPopup('김밥 & SUSHI HUB');
+    var shopMarker = new kakao.maps.Marker({
+        map: deliveryMap,
+        position: dunpoCenter
+    });
+    var shopInfo = new kakao.maps.InfoWindow({
+        content: '<div style="padding:5px 10px;font-size:12px;white-space:nowrap;">🍣 김밥 & SUSHI HUB</div>'
+    });
+    shopInfo.open(deliveryMap, shopMarker);
 
     // Click on map to pick address
-    deliveryMap.on('click', function(e) {
-        setMapMarker(e.latlng.lat, e.latlng.lng);
-        reverseGeocode(e.latlng.lat, e.latlng.lng);
+    kakao.maps.event.addListener(deliveryMap, 'click', function(mouseEvent) {
+        var latlng = mouseEvent.latLng;
+        setMapMarker(latlng.getLat(), latlng.getLng());
+        reverseGeocode(latlng.getLat(), latlng.getLng());
     });
 
     // If address already saved, try to show it
-    const savedAddr = document.getElementById('deliveryAddress').value;
+    var savedAddr = document.getElementById('deliveryAddress').value;
     if (savedAddr) {
         forwardGeocode(savedAddr);
     }
 
-    // Fix tile loading after modal animation
+    // Fix rendering after modal animation
     setTimeout(function() {
-        deliveryMap.invalidateSize();
+        deliveryMap.relayout();
     }, 300);
 }
 
 function setMapMarker(lat, lng) {
-    var pinIcon = L.divIcon({
-        className: '',
-        html: '<div style="font-size:1.6rem;text-align:center;filter:drop-shadow(0 2px 2px rgba(0,0,0,0.3));">📍</div>',
-        iconSize: [28, 28],
-        iconAnchor: [14, 28]
-    });
+    var position = new kakao.maps.LatLng(lat, lng);
     if (deliveryMarker) {
-        deliveryMarker.setLatLng([lat, lng]);
+        deliveryMarker.setPosition(position);
     } else {
-        deliveryMarker = L.marker([lat, lng], { draggable: true, icon: pinIcon }).addTo(deliveryMap);
-        deliveryMarker.on('dragend', function() {
-            const pos = deliveryMarker.getLatLng();
-            reverseGeocode(pos.lat, pos.lng);
+        deliveryMarker = new kakao.maps.Marker({
+            map: deliveryMap,
+            position: position,
+            draggable: true
+        });
+        kakao.maps.event.addListener(deliveryMarker, 'dragend', function() {
+            var pos = deliveryMarker.getPosition();
+            reverseGeocode(pos.getLat(), pos.getLng());
         });
     }
-    deliveryMap.setView([lat, lng], 16);
+    deliveryMap.setCenter(position);
+    deliveryMap.setLevel(3);
 }
 
 function reverseGeocode(lat, lng) {
-    fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lng + '&accept-language=ko&zoom=18&addressdetails=1')
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            if (data && data.display_name) {
-                document.getElementById('deliveryAddress').value = data.display_name;
+    var geocoder = getKakaoGeocoder();
+    geocoder.coord2Address(lng, lat, function(result, status) {
+        if (status === kakao.maps.services.Status.OK && result[0]) {
+            var addr = '';
+            // Prefer road address if available
+            if (result[0].road_address) {
+                addr = result[0].road_address.address_name;
+            } else if (result[0].address) {
+                addr = result[0].address.address_name;
+            }
+            if (addr) {
+                document.getElementById('deliveryAddress').value = addr;
                 saveCustomerInfo();
             }
-        })
-        .catch(function() {});
+        }
+    });
 }
 
 function forwardGeocode(query) {
-    fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(query) + '&accept-language=ko&limit=1')
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            if (data && data.length > 0) {
-                setMapMarker(parseFloat(data[0].lat), parseFloat(data[0].lon));
-            }
-        })
-        .catch(function() {});
+    var geocoder = getKakaoGeocoder();
+    geocoder.addressSearch(query, function(result, status) {
+        if (status === kakao.maps.services.Status.OK && result[0]) {
+            setMapMarker(parseFloat(result[0].y), parseFloat(result[0].x));
+        }
+    });
 }
 
 function getMyLocation() {
