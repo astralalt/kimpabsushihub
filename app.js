@@ -1173,6 +1173,20 @@ function setMapMarker(lat, lng) {
     deliveryMap.setLevel(3);
 }
 
+var deliveryZoneValid = false;
+
+function isInDeliveryZone(address) {
+    if (!address) return false;
+    // Allow Dunpo-myeon (둔포) and Anjung (안중)
+    return address.indexOf('둔포') !== -1 || address.indexOf('안중') !== -1;
+}
+
+function showDeliveryZoneWarning(show) {
+    var warning = document.getElementById('deliveryZoneWarning');
+    if (!warning) return;
+    warning.style.display = show ? 'block' : 'none';
+}
+
 function reverseGeocode(lat, lng) {
     var geocoder = getKakaoGeocoder();
     geocoder.coord2Address(lng, lat, function(result, status) {
@@ -1187,6 +1201,10 @@ function reverseGeocode(lat, lng) {
             if (addr) {
                 document.getElementById('deliveryAddress').value = addr;
                 saveCustomerInfo();
+
+                // Check delivery zone
+                deliveryZoneValid = isInDeliveryZone(addr);
+                showDeliveryZoneWarning(!deliveryZoneValid);
             }
         }
     });
@@ -1264,6 +1282,18 @@ const PAYMENT_TIMEOUT = 20 * 60; // 20 minutes in seconds
 
 function submitOrder(event) {
     event.preventDefault();
+
+    // Check delivery zone
+    var orderType = document.querySelector('input[name="orderType"]:checked').value;
+    if (orderType === 'delivery') {
+        var addr = document.getElementById('deliveryAddress').value;
+        if (!isInDeliveryZone(addr)) {
+            alert(currentLanguage === 'ru'
+                ? 'Доставка доступна только в Дунпо и Анджонри. Пожалуйста, выберите адрес в зоне доставки.'
+                : '배달은 둔포면과 안중리 지역만 가능합니다. 배달 가능 지역의 주소를 선택해주세요.');
+            return;
+        }
+    }
 
     var subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     var deliveryCost = getDeliveryCost();
