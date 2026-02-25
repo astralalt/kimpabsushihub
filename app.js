@@ -175,14 +175,38 @@ let menuData = [
         image: "placeholder-salmon-sashimi.jpg"
     },
 
-    // BAKED ROLLS (ЗАПЕЧЁННЫЕ РОЛЛЫ) — constructor item
+    // BAKED ROLLS (ЗАПЕЧЁННЫЕ РОЛЛЫ)
+    {
+        id: 35,
+        nameRU: "Запечённый ролл",
+        nameKR: "베이크 롤",
+        descriptionRU: "Лосось, угорь, авокадо, огурец, сыр Филадельфия, сырная шапочка",
+        descriptionKR: "연어, 장어, 아보카도, 오이, 크림치즈(필라델피아), 치즈 토핑",
+        price: 13000,
+        category: "baked",
+        portionRU: "8шт",
+        portionKR: "8개",
+        image: "pic/baked_roll.jpg"
+    },
+    {
+        id: 36,
+        nameRU: "Запечённый ролл острый",
+        nameKR: "스파이시 베이크 롤",
+        descriptionRU: "Лосось, угорь, авокадо, огурец, сыр Филадельфия, сырная шапочка спайс",
+        descriptionKR: "연어, 장어, 아보카도, 오이, 크림치즈(필라델피아), 스파이시 치즈 토핑",
+        price: 13000,
+        category: "baked",
+        portionRU: "8шт",
+        portionKR: "8개",
+        image: "pic/baked_roll_spicy.jpg"
+    },
     {
         id: 14,
-        nameRU: "Запечённый ролл — собери сам",
-        nameKR: "구운 롤 — 직접 만들기",
+        nameRU: "Запечённые роллы — собери сам",
+        nameKR: "베이크 롤 — 직접 만들기",
         descriptionRU: "Выберите начинку и топпинг",
         descriptionKR: "속 재료와 토핑을 선택하세요",
-        price: 13000,
+        price: 10000,
         category: "baked",
         portionRU: "8шт",
         portionKR: "8개",
@@ -193,8 +217,8 @@ let menuData = [
     // CLASSIC ROLLS (КЛАССИЧЕСКИЕ РОЛЛЫ)
     {
         id: 16,
-        nameRU: "Лосось с огурцом",
-        nameKR: "연어 오이 롤",
+        nameRU: "Ролл с лососем",
+        nameKR: "연어 롤",
         descriptionRU: "Простой ролл с лососем",
         descriptionKR: "기본 연어 롤",
         price: 5000,
@@ -205,10 +229,10 @@ let menuData = [
     },
     {
         id: 17,
-        nameRU: "Угорь с огурцом",
-        nameKR: "훈제 장어 오이 롤",
-        descriptionRU: "Копчёный угорь с огурцом",
-        descriptionKR: "훈제 장어와 오이",
+        nameRU: "Ролл с угрём",
+        nameKR: "훈제 장어 롤",
+        descriptionRU: "Копчёный угорь",
+        descriptionKR: "훈제 장어",
         price: 6000,
         category: "classic",
         portionRU: "6шт",
@@ -217,8 +241,8 @@ let menuData = [
     },
     {
         id: 18,
-        nameRU: "Тунец с огурцом",
-        nameKR: "참치 오이 롤",
+        nameRU: "Ролл с тунцом",
+        nameKR: "참치 롤",
         descriptionRU: "Свежий тунец",
         descriptionKR: "신선한 참치",
         price: 6000,
@@ -229,8 +253,8 @@ let menuData = [
     },
     {
         id: 19,
-        nameRU: "Гребешок с огурцом",
-        nameKR: "가리비 오이 롤",
+        nameRU: "Ролл с гребешком",
+        nameKR: "가리비 롤",
         descriptionRU: "Нежный гребешок",
         descriptionKR: "부드러운 가리비",
         price: 6000,
@@ -415,15 +439,18 @@ let menuData = [
 
 // Baked Roll Builder options (fallback — overridden by Google Sheet data)
 let bakedFillings = [
-    { id: 'salmon', nameRU: 'Лосось', nameKR: '연어', image: 'pic/photo_25_2026-02-10_18-12-04.jpg' },
-    { id: 'eel', nameRU: 'Угорь', nameKR: '장어', image: 'pic/photo_27_2026-02-10_18-12-04.jpg' },
-    { id: 'shrimp', nameRU: 'Креветка', nameKR: '새우', image: 'pic/photo_28_2026-02-10_18-12-04.jpg' },
-    { id: 'crab', nameRU: 'Краб', nameKR: '게살', image: 'pic/photo_26_2026-02-10_18-12-04.jpg' }
+    { id: 'salmon_cuc', nameRU: 'Лосось с огурцом', nameKR: '연어 오이', image: 'pic/photo_25_2026-02-10_18-12-04.jpg' },
+    { id: 'eel_cuc', nameRU: 'Угорь с огурцом', nameKR: '장어 오이', image: 'pic/photo_27_2026-02-10_18-12-04.jpg' },
+    { id: 'tuna_cuc', nameRU: 'Тунец с огурцом', nameKR: '참치 오이', image: 'pic/photo_30_2026-02-10_18-12-04.jpg' },
+    { id: 'scallop_cuc', nameRU: 'Гребешок с огурцом', nameKR: '가리비 오이', image: 'pic/photo_4_2026-02-10_18-12-04.jpg' }
 ];
 
 let bakedToppings = [
-    { id: 'cheese', nameRU: 'Сырная шапочка', nameKR: '치즈 토핑', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
-    { id: 'spicy', nameRU: 'Острая шапочка', nameKR: '매운 치즈 토핑', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' }
+    { id: 'crab_garlic', nameRU: 'Крабовая с чесноком', nameKR: '크랩 갈릭', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
+    { id: 'teriyaki', nameRU: 'Терияки', nameKR: '테리야키', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
+    { id: 'spicy', nameRU: 'Спайс', nameKR: '스파이시', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
+    { id: 'unagi', nameRU: 'Унаги', nameKR: '우나기', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
+    { id: 'assorted', nameRU: 'Ассорти (4 вкуса)', nameKR: '모듬 (4가지 맛)', image: 'pic/photo_24_2026-02-10_18-12-04.jpg' }
 ];
 
 // Cart state
