@@ -1280,6 +1280,12 @@ let paymentTimerSeconds = 0;
 let pendingOrderData = null;
 const PAYMENT_TIMEOUT = 20 * 60; // 20 minutes in seconds
 
+function getNextOrderNumber() {
+    var num = parseInt(localStorage.getItem('orderCounter') || '0', 10) + 1;
+    localStorage.setItem('orderCounter', num.toString());
+    return num.toString();
+}
+
 function submitOrder(event) {
     event.preventDefault();
 
@@ -1299,7 +1305,7 @@ function submitOrder(event) {
     var deliveryCost = getDeliveryCost();
 
     const orderData = {
-        orderNumber: 'SH' + Date.now().toString().slice(-6),
+        orderNumber: getNextOrderNumber(),
         customerName: document.getElementById('customerName').value,
         customerPhone: document.getElementById('customerPhone').value,
         orderType: document.querySelector('input[name="orderType"]:checked').value,
