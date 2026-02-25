@@ -439,18 +439,18 @@ let menuData = [
 
 // Baked Roll Builder options (fallback — overridden by Google Sheet data)
 let bakedFillings = [
-    { id: 'salmon_cuc', nameRU: 'Лосось с огурцом', nameKR: '연어 오이', image: 'pic/photo_25_2026-02-10_18-12-04.jpg' },
-    { id: 'eel_cuc', nameRU: 'Угорь с огурцом', nameKR: '장어 오이', image: 'pic/photo_27_2026-02-10_18-12-04.jpg' },
-    { id: 'tuna_cuc', nameRU: 'Тунец с огурцом', nameKR: '참치 오이', image: 'pic/photo_30_2026-02-10_18-12-04.jpg' },
-    { id: 'scallop_cuc', nameRU: 'Гребешок с огурцом', nameKR: '가리비 오이', image: 'pic/photo_4_2026-02-10_18-12-04.jpg' }
+    { id: 'лосось', nameRU: 'Лосось с огурцом', nameKR: '연어 오이', image: 'pic/photo_25_2026-02-10_18-12-04.jpg' },
+    { id: 'угорь', nameRU: 'Угорь с огурцом', nameKR: '장어 오이', image: 'pic/photo_27_2026-02-10_18-12-04.jpg' },
+    { id: 'тунец', nameRU: 'Тунец с огурцом', nameKR: '참치 오이', image: 'pic/photo_30_2026-02-10_18-12-04.jpg' },
+    { id: 'гребешок', nameRU: 'Гребешок с огурцом', nameKR: '가리비 오이', image: 'pic/photo_4_2026-02-10_18-12-04.jpg' }
 ];
 
 let bakedToppings = [
-    { id: 'crab_garlic', nameRU: 'Крабовая с чесноком', nameKR: '크랩 갈릭', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
-    { id: 'teriyaki', nameRU: 'Терияки', nameKR: '테리야키', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
-    { id: 'spicy', nameRU: 'Спайс', nameKR: '스파이시', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
-    { id: 'unagi', nameRU: 'Унаги', nameKR: '우나기', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
-    { id: 'assorted', nameRU: 'Ассорти (4 вкуса)', nameKR: '모듬 (4가지 맛)', image: 'pic/photo_24_2026-02-10_18-12-04.jpg' }
+    { id: 'крабовая', nameRU: 'Крабовая с чесноком', nameKR: '크랩 갈릭', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
+    { id: 'терияки', nameRU: 'Терияки', nameKR: '테리야키', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
+    { id: 'спайс', nameRU: 'Спайс', nameKR: '스파이시', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
+    { id: 'унаги', nameRU: 'Унаги', nameKR: '우나기', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
+    { id: 'ассорти', nameRU: 'Ассорти (4 вкуса)', nameKR: '모듬 (4가지 맛)', image: 'pic/photo_24_2026-02-10_18-12-04.jpg' }
 ];
 
 // Cart state
