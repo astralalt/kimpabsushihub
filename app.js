@@ -743,14 +743,23 @@ function openBakedBuilder() {
     selectedFilling = null;
     selectedTopping = null;
 
-    const overlay = document.getElementById('itemDetailOverlay');
-    const detail = document.getElementById('itemDetail');
+    var builderItem = menuData.find(function(i) { return i.isBakedBuilder; });
+    var price = builderItem ? builderItem.price : 10000;
 
-    const titleText = currentLanguage === 'ru' ? 'Собери свой запечённый ролл' : '나만의 구운 롤 만들기';
-    const fillingLabel = currentLanguage === 'ru' ? 'ВЫБЕРИТЕ НАЧИНКУ' : '속 재료 선택';
-    const toppingLabel = currentLanguage === 'ru' ? 'ВЫБЕРИТЕ ТОППИНГ' : '토핑 선택';
-    const addText = currentLanguage === 'ru' ? '+ В КОРЗИНУ — ₩13,000' : '+ 담기 — ₩13,000';
-    const portionText = currentLanguage === 'ru' ? '8шт' : '8개';
+    var overlay = document.getElementById('builderOverlay');
+    var body = document.getElementById('builderBody');
+    var title = document.getElementById('builderTitle');
+    var priceEl = document.getElementById('builderPrice');
+    var addText = document.getElementById('builderAddText');
+    var addBtn = document.getElementById('bakedAddBtn');
+
+    title.textContent = currentLanguage === 'ru' ? 'Собери свой запечённый ролл' : '나만의 구운 롤 만들기';
+    priceEl.textContent = '₩' + price.toLocaleString();
+    addText.textContent = currentLanguage === 'ru' ? '+ В КОРЗИНУ — ₩' + price.toLocaleString() : '+ 담기 — ₩' + price.toLocaleString();
+    addBtn.disabled = true;
+
+    var fillingLabel = currentLanguage === 'ru' ? 'Выберите начинку' : '속 재료 선택';
+    var toppingLabel = currentLanguage === 'ru' ? 'Выберите топпинг' : '토핑 선택';
 
     var fillingsHTML = bakedFillings.map(function(f) {
         var n = currentLanguage === 'ru' ? f.nameRU : f.nameKR;
@@ -766,33 +775,23 @@ function openBakedBuilder() {
             '<span>' + n + '</span></div>';
     }).join('');
 
-    detail.innerHTML = `
-        <div class="item-detail-image-wrap">
-            <img class="item-detail-image" src="pic/photo_24_2026-02-10_18-12-04.jpg" alt="Baked Roll">
-            <button class="item-detail-close" onclick="closeItemDetail()">×</button>
-        </div>
-        <div class="item-detail-body">
-            <h2>${titleText}</h2>
-            <div class="item-detail-portion">${portionText} • ₩13,000</div>
-
-            <div class="builder-section">
-                <h4>${fillingLabel}</h4>
-                <div class="builder-options">${fillingsHTML}</div>
-            </div>
-
-            <div class="builder-section">
-                <h4>${toppingLabel}</h4>
-                <div class="builder-options">${toppingsHTML}</div>
-            </div>
-
-            <div class="item-detail-footer">
-                <button class="item-detail-add builder-add-btn" id="bakedAddBtn" onclick="addBakedToCart()" disabled>${addText}</button>
-            </div>
-        </div>
-    `;
+    body.innerHTML =
+        '<div class="builder-step">' +
+            '<div class="builder-step-label"><span class="builder-step-num">1</span><h4>' + fillingLabel + '</h4></div>' +
+            '<div class="builder-options">' + fillingsHTML + '</div>' +
+        '</div>' +
+        '<div class="builder-step">' +
+            '<div class="builder-step-label"><span class="builder-step-num">2</span><h4>' + toppingLabel + '</h4></div>' +
+            '<div class="builder-options">' + toppingsHTML + '</div>' +
+        '</div>';
 
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+}
+
+function closeBuilder() {
+    document.getElementById('builderOverlay').classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 function selectFilling(id, el) {
@@ -824,8 +823,8 @@ function addBakedToCart() {
     var topping = bakedToppings.find(function(t) { return t.id === selectedTopping; });
     if (!filling || !topping) return;
 
-    var fillingName = currentLanguage === 'ru' ? filling.nameRU : filling.nameKR;
-    var toppingName = currentLanguage === 'ru' ? topping.nameRU : topping.nameKR;
+    var builderItem = menuData.find(function(i) { return i.isBakedBuilder; });
+    var price = builderItem ? builderItem.price : 10000;
 
     // Create a unique composite id for this combination
     var compositeId = 'baked_' + selectedFilling + '_' + selectedTopping;
@@ -835,11 +834,11 @@ function addBakedToCart() {
         existingItem.quantity += 1;
     } else {
         cart.push({
-            id: Date.now(), // unique id for cart
+            id: Date.now(),
             compositeId: compositeId,
             nameRU: 'Запечённый: ' + filling.nameRU + ' + ' + topping.nameRU,
             nameKR: '구운 롤: ' + filling.nameKR + ' + ' + topping.nameKR,
-            price: 13000,
+            price: price,
             portionRU: '8шт',
             portionKR: '8개',
             image: topping.image,
@@ -848,7 +847,7 @@ function addBakedToCart() {
     }
 
     updateCartDisplay();
-    closeItemDetail();
+    closeBuilder();
 
     var cartButton = document.querySelector('.cart-button');
     cartButton.style.transform = 'scale(1.1)';
