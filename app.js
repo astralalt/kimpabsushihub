@@ -8,7 +8,7 @@
 //    Find "chat":{"id":-XXXXXXXXX} — that's your CHAT_ID
 // 5. Paste both values below:
 const TELEGRAM_BOT_TOKEN = '8393290071:AAF5S2cihG4xEFGcaDorvhjSM0ir84Fw3lw';
-const TELEGRAM_CHAT_ID = '-5227231661';
+const TELEGRAM_CHAT_ID = '-1003816920318';
 // ==============================================
 
 // ============ GOOGLE SHEETS MENU ============
