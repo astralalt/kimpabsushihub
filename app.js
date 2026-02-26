@@ -877,6 +877,31 @@ function addBakedToCart() {
     setTimeout(function() { cartButton.style.transform = 'scale(1)'; }, 200);
 }
 
+// Category showcase — select from big cards
+function selectCategory(cat) {
+    // Scroll to menu section first
+    var menuSection = document.getElementById('menu');
+    if (menuSection) {
+        menuSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Small delay so scroll starts, then filter
+    setTimeout(function() {
+        // Update sticky bar active button
+        document.querySelectorAll('.category-button').forEach(function(btn) {
+            btn.classList.remove('active');
+            var btnRU = (btn.getAttribute('data-ru') || '').toUpperCase();
+            var catLabels = {
+                sushi: 'СУШИ', classic: 'КЛАССИЧЕСКИЕ', baked: 'ЗАПЕЧЁННЫЕ', rolls: 'РОЛЛЫ', sets: 'СЕТЫ'
+            };
+            if (catLabels[cat] && btnRU === catLabels[cat]) {
+                btn.classList.add('active');
+            }
+        });
+        currentCategory = cat;
+        renderMenu();
+    }, 300);
+}
+
 // Category filtering
 function filterCategory(category, event) {
     // Update active button

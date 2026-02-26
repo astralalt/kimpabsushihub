@@ -209,6 +209,70 @@
             border: 1px solid rgba(255,255,255,0.12);
         }
 
+        /* Category Showcase */
+        .category-showcase {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .category-showcase h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            color: var(--black);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 4 / 3;
+        }
+
+        .category-card:last-child {
+            grid-column: 2;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .category-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 30%, rgba(0,0,0,0.65));
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 0.75rem;
+        }
+
+        .category-card-overlay span {
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+        }
+
         /* Menu Section */
         .container {
             max-width: 1200px;
@@ -1456,6 +1520,28 @@
                 min-height: calc(100svh - 70px);
             }
 
+            .category-showcase {
+                padding: 1.5rem 1rem;
+            }
+
+            .category-showcase h2 {
+                font-size: 1.2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.6rem;
+            }
+
+            .category-card:last-child {
+                grid-column: span 2;
+            }
+
+            .category-card-overlay span {
+                font-size: 0.85rem;
+            }
+
             .hero h1 {
                 font-size: 1.75rem;
             }
@@ -1895,6 +1981,33 @@
                 <div class="info-item">📍 <span data-ru="Дунпо и Анджонри" data-kr="둔포면 & 안중리">Дунпо и Анджонри</span></div>
                 <div class="info-item">🎁 <span data-ru="Бесплатная доставка от ₩30,000" data-kr="₩30,000 이상 무료 배달">Бесплатная доставка от ₩30,000</span></div>
                 <div class="info-item">🕐 <span data-ru="10:00 — 01:00 без выходных" data-kr="10:00 — 01:00 연중무휴">10:00 — 01:00 без выходных</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Showcase -->
+    <section class="category-showcase">
+        <h2 data-ru="КАТЕГОРИИ" data-kr="카테고리">КАТЕГОРИИ</h2>
+        <div class="category-grid">
+            <div class="category-card" onclick="selectCategory('sushi')">
+                <img src="pic/photo_8_2026-02-10_18-12-04.jpg" alt="Sushi">
+                <div class="category-card-overlay"><span data-ru="СУШИ" data-kr="초밥">СУШИ</span></div>
+            </div>
+            <div class="category-card" onclick="selectCategory('classic')">
+                <img src="pic/photo_29_2026-02-10_18-12-04.jpg" alt="Classic rolls">
+                <div class="category-card-overlay"><span data-ru="КЛАССИЧЕСКИЕ" data-kr="클래식 롤">КЛАССИЧЕСКИЕ</span></div>
+            </div>
+            <div class="category-card" onclick="selectCategory('baked')">
+                <img src="pic/photo_24_2026-02-10_18-12-04.jpg" alt="Baked rolls">
+                <div class="category-card-overlay"><span data-ru="ЗАПЕЧЁННЫЕ" data-kr="구운 롤">ЗАПЕЧЁННЫЕ</span></div>
+            </div>
+            <div class="category-card" onclick="selectCategory('rolls')">
+                <img src="pic/photo_21_2026-02-10_18-12-04.jpg" alt="Rolls">
+                <div class="category-card-overlay"><span data-ru="РОЛЛЫ" data-kr="롤">РОЛЛЫ</span></div>
+            </div>
+            <div class="category-card" onclick="selectCategory('sets')">
+                <img src="pic/photo_34_2026-02-10_18-12-04.jpg" alt="Sets">
+                <div class="category-card-overlay"><span data-ru="СЕТЫ" data-kr="세트">СЕТЫ</span></div>
             </div>
         </div>
     </section>
