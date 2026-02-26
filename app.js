@@ -225,8 +225,7 @@ let menuData = [
         category: "classic",
         portionRU: "6шт",
         portionKR: "6개",
-        image: "pic/photo_31_2026-02-10_18-12-04.jpg",
-        imagePosition: "center 70%"
+        image: "pic/photo_31_2026-02-10_18-12-04.jpg"
     },
     {
         id: 17,
@@ -250,8 +249,7 @@ let menuData = [
         category: "classic",
         portionRU: "6шт",
         portionKR: "6개",
-        image: "pic/photo_30_2026-02-10_18-12-04.jpg",
-        imagePosition: "center 65%"
+        image: "pic/photo_30_2026-02-10_18-12-04.jpg"
     },
     {
         id: 19,
@@ -622,8 +620,6 @@ const categoryOrder = ['sushi', 'classic', 'baked', 'rolls', 'sets'];
 
 // Per-image crop adjustments for photos where center crop cuts off the food
 var imagePositionMap = {
-    'pic/photo_31_2026-02-10_18-12-04.jpg': 'center 70%',
-    'pic/photo_30_2026-02-10_18-12-04.jpg': 'center 65%'
 };
 
 function applyImagePositions() {
