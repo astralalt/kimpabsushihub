@@ -225,7 +225,8 @@ let menuData = [
         category: "classic",
         portionRU: "6шт",
         portionKR: "6개",
-        image: "pic/photo_31_2026-02-10_18-12-04.jpg"
+        image: "pic/photo_31_2026-02-10_18-12-04.jpg",
+        imagePosition: "center 70%"
     },
     {
         id: 17,
@@ -249,7 +250,8 @@ let menuData = [
         category: "classic",
         portionRU: "6шт",
         portionKR: "6개",
-        image: "pic/photo_30_2026-02-10_18-12-04.jpg"
+        image: "pic/photo_30_2026-02-10_18-12-04.jpg",
+        imagePosition: "center 65%"
     },
     {
         id: 19,
@@ -589,6 +591,7 @@ function loadMenuFromSheet() {
             menuData = newMenu;
             if (newFillings.length > 0) bakedFillings = newFillings;
             if (newToppings.length > 0) bakedToppings = newToppings;
+            applyImagePositions();
             console.log('Menu loaded from Google Sheets:', menuData.length, 'items,', bakedFillings.length, 'fillings,', bakedToppings.length, 'toppings');
         })
         .catch(function(err) {
@@ -617,6 +620,20 @@ const categoryNames = {
 
 const categoryOrder = ['sushi', 'classic', 'baked', 'rolls', 'sets'];
 
+// Per-image crop adjustments for photos where center crop cuts off the food
+var imagePositionMap = {
+    'pic/photo_31_2026-02-10_18-12-04.jpg': 'center 70%',
+    'pic/photo_30_2026-02-10_18-12-04.jpg': 'center 65%'
+};
+
+function applyImagePositions() {
+    menuData.forEach(function(item) {
+        if (imagePositionMap[item.image]) {
+            item.imagePosition = imagePositionMap[item.image];
+        }
+    });
+}
+
 function renderMenuItemHTML(item) {
     const name = currentLanguage === 'ru' ? item.nameRU : item.nameKR;
     const desc = currentLanguage === 'ru' ? item.descriptionRU : item.descriptionKR;
@@ -629,7 +646,7 @@ function renderMenuItemHTML(item) {
     return `
         <div class="menu-item" data-category="${item.category}" onclick="${clickAction}">
             <div class="menu-item-image-wrap">
-                <img src="${item.image}" alt="${item.nameRU}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22%23999%22 font-size=%2220%22%3E${encodeURIComponent(item.nameRU)}%3C/text%3E%3C/svg%3E'">
+                <img src="${item.image}" alt="${item.nameRU}"${item.imagePosition ? ` style="object-position: ${item.imagePosition}"` : ''} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22%23999%22 font-size=%2220%22%3E${encodeURIComponent(item.nameRU)}%3C/text%3E%3C/svg%3E'">
                 <div class="menu-item-badge">${portion}</div>
             </div>
             <div class="menu-item-content">
