@@ -918,6 +918,13 @@
             color: white;
             font-size: 1.75rem;
             cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .cart-header {
+            position: sticky;
+            top: 0;
+            z-index: 1;
         }
 
         .cart-items {
@@ -1056,6 +1063,7 @@
             width: 90%;
             max-height: 90vh;
             overflow-y: auto;
+            position: relative;
         }
 
         .modal-header {
@@ -1063,6 +1071,13 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1.75rem;
+            position: sticky;
+            top: -2rem;
+            background: white;
+            padding: 2rem 0 0.75rem;
+            margin-top: -2rem;
+            z-index: 1;
+            border-radius: 16px 16px 0 0;
         }
 
         .modal-header h2 {
@@ -1071,16 +1086,23 @@
         }
 
         .close-modal {
-            background: none;
+            background: rgba(0,0,0,0.08);
             border: none;
-            font-size: 1.75rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            color: var(--gray);
-            transition: color 0.2s;
+            color: var(--black);
+            transition: all 0.2s;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .close-modal:hover {
-            color: var(--black);
+            background: rgba(0,0,0,0.15);
         }
 
         .form-group {
@@ -2097,7 +2119,8 @@
 
     <!-- Success Modal -->
     <div class="modal" id="successModal">
-        <div class="modal-content success-screen">
+        <div class="modal-content success-screen" style="position:relative;">
+            <button class="close-modal" onclick="closeSuccess()" style="position:absolute;top:12px;right:12px;">&times;</button>
             <div class="success-icon">✅</div>
             <h2 data-ru="ЗАКАЗ ПРИНЯТ!" data-kr="주문 접수!">ЗАКАЗ ПРИНЯТ!</h2>
             <p data-ru="Номер заказа:" data-kr="주문 번호:">Номер заказа: <strong id="orderNumber"></strong></p>
