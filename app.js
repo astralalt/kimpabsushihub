@@ -749,12 +749,10 @@ function openBakedBuilder() {
     var overlay = document.getElementById('builderOverlay');
     var body = document.getElementById('builderBody');
     var title = document.getElementById('builderTitle');
-    var priceEl = document.getElementById('builderPrice');
     var addText = document.getElementById('builderAddText');
     var addBtn = document.getElementById('bakedAddBtn');
 
     title.textContent = currentLanguage === 'ru' ? 'Собери свой запечённый ролл' : '나만의 구운 롤 만들기';
-    priceEl.textContent = '₩' + price.toLocaleString();
     addText.textContent = currentLanguage === 'ru' ? '+ В КОРЗИНУ — ₩' + price.toLocaleString() : '+ 담기 — ₩' + price.toLocaleString();
     addBtn.disabled = true;
 
@@ -797,16 +795,26 @@ function closeBuilder() {
 }
 
 function selectFilling(id, el) {
-    selectedFilling = id;
-    el.parentElement.querySelectorAll('.builder-option').forEach(function(o) { o.classList.remove('selected'); });
-    el.classList.add('selected');
+    if (selectedFilling === id) {
+        selectedFilling = null;
+        el.classList.remove('selected');
+    } else {
+        selectedFilling = id;
+        el.parentElement.querySelectorAll('.builder-option').forEach(function(o) { o.classList.remove('selected'); });
+        el.classList.add('selected');
+    }
     checkBakedReady();
 }
 
 function selectTopping(id, el) {
-    selectedTopping = id;
-    el.parentElement.querySelectorAll('.builder-option').forEach(function(o) { o.classList.remove('selected'); });
-    el.classList.add('selected');
+    if (selectedTopping === id) {
+        selectedTopping = null;
+        el.classList.remove('selected');
+    } else {
+        selectedTopping = id;
+        el.parentElement.querySelectorAll('.builder-option').forEach(function(o) { o.classList.remove('selected'); });
+        el.classList.add('selected');
+    }
     checkBakedReady();
 }
 
