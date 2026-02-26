@@ -764,6 +764,7 @@ function openBakedBuilder() {
     var fillingsHTML = bakedFillings.map(function(f) {
         var n = currentLanguage === 'ru' ? f.nameRU : f.nameKR;
         return '<div class="builder-option" data-id="' + f.id + '" onclick="selectFilling(\'' + f.id + '\', this)">' +
+            '<span class="builder-check">✓</span>' +
             '<img src="' + f.image + '" alt="' + n + '">' +
             '<span>' + n + '</span></div>';
     }).join('');
@@ -771,6 +772,7 @@ function openBakedBuilder() {
     var toppingsHTML = bakedToppings.map(function(t) {
         var n = currentLanguage === 'ru' ? t.nameRU : t.nameKR;
         return '<div class="builder-option" data-id="' + t.id + '" onclick="selectTopping(\'' + t.id + '\', this)">' +
+            '<span class="builder-check">✓</span>' +
             '<img src="' + t.image + '" alt="' + n + '">' +
             '<span>' + n + '</span></div>';
     }).join('');
@@ -782,7 +784,7 @@ function openBakedBuilder() {
         '</div>' +
         '<div class="builder-step">' +
             '<div class="builder-step-label"><span class="builder-step-num">2</span><h4>' + toppingLabel + '</h4></div>' +
-            '<div class="builder-options">' + toppingsHTML + '</div>' +
+            '<div class="builder-options toppings-grid">' + toppingsHTML + '</div>' +
         '</div>';
 
     overlay.classList.add('active');
