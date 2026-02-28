@@ -1704,27 +1704,42 @@ function closeSuccess() {
     document.getElementById('orderForm').reset();
 }
 
-// Language toggle
-function toggleLanguage() {
-    // Cycle: RU → EN → KR → RU
-    if (currentLanguage === 'ru') {
-        currentLanguage = 'en';
-    } else if (currentLanguage === 'en') {
-        currentLanguage = 'kr';
-    } else {
-        currentLanguage = 'ru';
-    }
+// Language selector dropdown
+function toggleLangDropdown(event) {
+    event.stopPropagation();
+    var btn = event.currentTarget;
+    var dropdown = btn.parentElement.querySelector('.lang-dropdown');
+    var wasOpen = dropdown.classList.contains('open');
 
-    // Update the button text
-    const langText = document.getElementById('langText');
-    if (langText) {
-        langText.textContent = currentLanguage.toUpperCase();
+    // Close all dropdowns first
+    document.querySelectorAll('.lang-dropdown.open').forEach(function(d) {
+        d.classList.remove('open');
+    });
+
+    // Toggle the clicked one
+    if (!wasOpen) {
+        dropdown.classList.add('open');
     }
-    // Sync sticky bar lang button
-    const stickyLang = document.getElementById('stickyLangText');
-    if (stickyLang) {
-        stickyLang.textContent = currentLanguage.toUpperCase();
-    }
+}
+
+function setLanguage(lang) {
+    currentLanguage = lang;
+
+    // Update both button labels
+    var langText = document.getElementById('langText');
+    if (langText) langText.textContent = lang.toUpperCase();
+    var stickyLang = document.getElementById('stickyLangText');
+    if (stickyLang) stickyLang.textContent = lang.toUpperCase();
+
+    // Update active state on all dropdown options
+    document.querySelectorAll('.lang-option').forEach(function(opt) {
+        opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+    });
+
+    // Close all dropdowns
+    document.querySelectorAll('.lang-dropdown.open').forEach(function(d) {
+        d.classList.remove('open');
+    });
 
     // Update all page text
     updateLanguage();
@@ -1732,6 +1747,15 @@ function toggleLanguage() {
     // Re-render menu with new language
     renderMenu();
 }
+
+// Close language dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.lang-selector')) {
+        document.querySelectorAll('.lang-dropdown.open').forEach(function(d) {
+            d.classList.remove('open');
+        });
+    }
+});
 
 function updateLanguage() {
     var langMap = { ru: 'ru', en: 'en', kr: 'ko' };

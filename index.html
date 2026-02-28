@@ -106,6 +106,59 @@
             color: white;
         }
 
+        .lang-arrow {
+            font-size: 0.65rem;
+            margin-left: 2px;
+            opacity: 0.7;
+        }
+
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            right: 0;
+            background: #1a1a2e;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 80px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            z-index: 2000;
+            flex-direction: column;
+        }
+
+        .lang-dropdown.open {
+            display: flex;
+        }
+
+        .lang-option {
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            border: none;
+            padding: 0.55rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .lang-option:hover {
+            background: rgba(255,255,255,0.08);
+            color: white;
+        }
+
+        .lang-option.active {
+            color: var(--primary-red);
+            background: rgba(255,255,255,0.05);
+        }
+
         .cart-button {
             position: relative;
             background: var(--primary-red);
@@ -1654,8 +1707,8 @@
                 justify-content: flex-start;
             }
 
-            /* Hide sticky lang button on mobile */
-            .sticky-lang-btn {
+            /* Hide sticky lang selector on mobile */
+            .sticky-lang-selector {
                 display: none !important;
             }
 
@@ -1758,6 +1811,18 @@
             gap: 0.5rem;
         }
 
+        .sticky-lang-selector {
+            flex-shrink: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .menu-categories-wrap.stuck .sticky-lang-selector {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
         .sticky-lang-btn {
             background: transparent;
             color: rgba(255,255,255,0.8);
@@ -1768,15 +1833,7 @@
             font-weight: 600;
             font-size: 0.75rem;
             letter-spacing: 1px;
-            flex-shrink: 0;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s, border-color 0.25s, color 0.25s;
-        }
-
-        .menu-categories-wrap.stuck .sticky-lang-btn {
-            opacity: 1;
-            pointer-events: auto;
+            transition: border-color 0.25s, color 0.25s;
         }
 
         .sticky-lang-btn:hover {
@@ -1960,9 +2017,16 @@
             </div>
             <nav>
                 <a href="#contact" data-ru="КОНТАКТЫ" data-kr="연락처" data-en="CONTACT">КОНТАКТЫ</a>
-                <button class="lang-toggle" onclick="toggleLanguage()">
-                    <span id="langText">RU</span>
-                </button>
+                <div class="lang-selector">
+                    <button class="lang-toggle" onclick="toggleLangDropdown(event)">
+                        <span id="langText">RU</span> <span class="lang-arrow">▾</span>
+                    </button>
+                    <div class="lang-dropdown" id="headerLangDropdown">
+                        <button class="lang-option active" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+                        <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+                        <button class="lang-option" data-lang="kr" onclick="setLanguage('kr')">KR</button>
+                    </div>
+                </div>
                 <button class="cart-button" onclick="toggleCart()">
                     <span data-ru="КОРЗИНА" data-kr="장바구니" data-en="CART"><svg class="cart-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> КОРЗИНА</span>
                     <span class="cart-count" id="cartCount">0</span>
@@ -2026,9 +2090,16 @@
                     <button class="category-button" onclick="filterCategory('rolls', event)" data-ru="РОЛЛЫ" data-kr="롤" data-en="ROLLS">РОЛЛЫ</button>
                     <button class="category-button" onclick="filterCategory('sets', event)" data-ru="СЕТЫ" data-kr="세트" data-en="SETS">СЕТЫ</button>
                 </div>
-                <button class="sticky-lang-btn" onclick="toggleLanguage()">
-                    <span id="stickyLangText">RU</span>
-                </button>
+                <div class="lang-selector sticky-lang-selector">
+                    <button class="sticky-lang-btn" onclick="toggleLangDropdown(event)">
+                        <span id="stickyLangText">RU</span> <span class="lang-arrow">▾</span>
+                    </button>
+                    <div class="lang-dropdown" id="stickyLangDropdown">
+                        <button class="lang-option active" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+                        <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+                        <button class="lang-option" data-lang="kr" onclick="setLanguage('kr')">KR</button>
+                    </div>
+                </div>
                 <button class="sticky-cart-icon" onclick="toggleCart()">
                     <svg class="cart-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> <span class="sticky-cart-count" id="stickyCartCount">0</span>
                 </button>
