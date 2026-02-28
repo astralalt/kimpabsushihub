@@ -1775,9 +1775,17 @@
             position: sticky;
             top: 0;
             z-index: 998;
+            margin: 0 -2rem 0 -2rem;
+            padding: 0;
+            height: 0;
+            overflow: visible;
             transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
-            margin: 0 -2rem 2rem -2rem;
-            padding: 0 2rem;
+        }
+
+        .menu-categories-wrap .menu-categories-inner {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
         }
 
         .menu-categories-wrap.stuck {
@@ -1786,6 +1794,12 @@
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 12px rgba(0,0,0,0.15);
             padding: 0.6rem 2rem;
+            height: auto;
+        }
+
+        .menu-categories-wrap.stuck .menu-categories-inner {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .menu-categories-wrap.stuck .category-button {
@@ -1922,6 +1936,7 @@
 
             .menu-categories-wrap.stuck {
                 padding: 0.4rem 0;
+                height: auto;
             }
 
             .menu-categories-inner {
@@ -2078,8 +2093,6 @@
 
     <!-- Menu Section -->
     <section id="menu" class="container">
-        <h2 class="section-title" data-ru="МЕНЮ" data-kr="메뉴" data-en="MENU">МЕНЮ</h2>
-
         <div class="menu-categories-wrap" id="menuCategoriesWrap">
             <div class="menu-categories-inner">
                 <div class="menu-categories">
