@@ -21,156 +21,195 @@ let menuData = [
     {
         id: 1,
         nameRU: "Суши лосось",
+        nameEN: "Salmon Sushi",
         nameKR: "연어 초밥",
         descriptionRU: "Классические суши с лососем",
+        descriptionEN: "Classic salmon sushi",
         descriptionKR: "기본 연어 초밥",
         price: 4000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "pic/photo_8_2026-02-10_18-12-04.jpg"
     },
     {
         id: 2,
         nameRU: "Суши гребешок",
+        nameEN: "Scallop Sushi",
         nameKR: "가리비 초밥",
         descriptionRU: "Нежный гребешок",
+        descriptionEN: "Tender scallop",
         descriptionKR: "부드러운 가리비",
         price: 5000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "pic/photo_4_2026-02-10_18-12-04.jpg"
     },
     {
         id: 3,
         nameRU: "Гункан лосось спайси",
+        nameEN: "Spicy Salmon Gunkan",
         nameKR: "매콤 연어 군함",
         descriptionRU: "Острый лосось с икрой тобико",
+        descriptionEN: "Spicy salmon with tobiko roe",
         descriptionKR: "매운 연어와 토비코",
         price: 5000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "pic/photo_3_2026-02-10_18-12-04.jpg"
     },
     {
         id: 4,
         nameRU: "Суши креветка",
+        nameEN: "Shrimp Sushi",
         nameKR: "새우 초밥",
         descriptionRU: "Сладкая креветка",
+        descriptionEN: "Sweet shrimp",
         descriptionKR: "달콤한 새우",
         price: 4000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "placeholder-shrimp-sushi.jpg"
     },
     {
         id: 5,
         nameRU: "Суши кальмар",
+        nameEN: "Squid Sushi",
         nameKR: "오징어 초밥",
         descriptionRU: "Свежий кальмар",
+        descriptionEN: "Fresh squid",
         descriptionKR: "신선한 오징어",
         price: 5000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "pic/photo_9_2026-02-10_18-12-04.jpg"
     },
     {
         id: 6,
         nameRU: "Гункан тобико Филадельфия",
+        nameEN: "Tobiko Philadelphia Gunkan",
         nameKR: "토비코 필라델피아 군함",
         descriptionRU: "Икра тобико с сыром",
+        descriptionEN: "Tobiko roe with cream cheese",
         descriptionKR: "토비코와 치즈",
         price: 5000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "pic/photo_1_2026-02-10_18-12-04.jpg"
     },
     {
         id: 7,
         nameRU: "Гункан тобико спайси",
+        nameEN: "Spicy Tobiko Gunkan",
         nameKR: "매운 토비코 군함",
         descriptionRU: "Острая икра тобико",
+        descriptionEN: "Spicy tobiko roe",
         descriptionKR: "매운 토비코",
         price: 5000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "pic/photo_1_2026-02-10_18-12-04.jpg"
     },
     {
         id: 8,
         nameRU: "Суши угорь",
+        nameEN: "Eel Sushi",
         nameKR: "장어 초밥",
         descriptionRU: "Копчёный угорь",
+        descriptionEN: "Smoked eel",
         descriptionKR: "훈제 장어",
         price: 4000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "pic/photo_5_2026-02-10_18-12-04.jpg"
     },
     {
         id: 9,
         nameRU: "Суши авокадо",
+        nameEN: "Avocado Sushi",
         nameKR: "아보카도 초밥",
         descriptionRU: "Вегетарианские суши",
+        descriptionEN: "Vegetarian sushi",
         descriptionKR: "채식 초밥",
         price: 3000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "pic/photo_6_2026-02-10_18-12-04.jpg"
     },
     {
         id: 10,
         nameRU: "Тунец сашими",
+        nameEN: "Tuna Sashimi",
         nameKR: "참치 사시미",
         descriptionRU: "Свежий тунец",
+        descriptionEN: "Fresh tuna",
         descriptionKR: "신선한 참치",
         price: 15000,
         category: "sushi",
         portionRU: "100г",
+        portionEN: "100g",
         portionKR: "100g",
         image: "placeholder-tuna-sashimi.jpg"
     },
     {
         id: 11,
         nameRU: "Суши тунец",
+        nameEN: "Tuna Sushi",
         nameKR: "참치 초밥",
         descriptionRU: "Классический тунец",
+        descriptionEN: "Classic tuna",
         descriptionKR: "기본 참치 초밥",
         price: 4000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "placeholder-tuna-sushi.jpg"
     },
     {
         id: 12,
         nameRU: "Гункан тунец спайси",
+        nameEN: "Spicy Tuna Gunkan",
         nameKR: "매콤 참치 군함",
         descriptionRU: "Острый тунец",
+        descriptionEN: "Spicy tuna",
         descriptionKR: "매운 참치",
         price: 5000,
         category: "sushi",
         portionRU: "2шт",
+        portionEN: "2pcs",
         portionKR: "2개",
         image: "pic/photo_2_2026-02-10_18-12-04.jpg"
     },
     {
         id: 13,
         nameRU: "Лосось сашими",
+        nameEN: "Salmon Sashimi",
         nameKR: "연어 사시미",
         descriptionRU: "Свежий лосось",
+        descriptionEN: "Fresh salmon",
         descriptionKR: "신선한 연어",
         price: 15000,
         category: "sushi",
         portionRU: "100г",
+        portionEN: "100g",
         portionKR: "100g",
         image: "placeholder-salmon-sashimi.jpg"
     },
@@ -179,36 +218,45 @@ let menuData = [
     {
         id: 35,
         nameRU: "Запечённый ролл",
+        nameEN: "Baked Roll",
         nameKR: "베이크 롤",
         descriptionRU: "Лосось, угорь, авокадо, огурец, сыр Филадельфия, сырная шапочка",
+        descriptionEN: "Salmon, eel, avocado, cucumber, cream cheese, baked cheese topping",
         descriptionKR: "연어, 장어, 아보카도, 오이, 크림치즈(필라델피아), 치즈 토핑",
         price: 13000,
         category: "baked",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/baked_roll.jpg"
     },
     {
         id: 36,
         nameRU: "Запечённый ролл острый",
+        nameEN: "Spicy Baked Roll",
         nameKR: "스파이시 베이크 롤",
         descriptionRU: "Лосось, угорь, авокадо, огурец, сыр Филадельфия, сырная шапочка спайс",
+        descriptionEN: "Salmon, eel, avocado, cucumber, cream cheese, spicy cheese topping",
         descriptionKR: "연어, 장어, 아보카도, 오이, 크림치즈(필라델피아), 스파이시 치즈 토핑",
         price: 13000,
         category: "baked",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/baked_roll_spicy.jpg"
     },
     {
         id: 14,
         nameRU: "Запечённые роллы — собери сам",
+        nameEN: "Baked Roll — Build Your Own",
         nameKR: "베이크 롤 — 직접 만들기",
         descriptionRU: "Выберите начинку и топпинг",
+        descriptionEN: "Choose your filling and topping",
         descriptionKR: "속 재료와 토핑을 선택하세요",
         price: 10000,
         category: "baked",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/photo_24_2026-02-10_18-12-04.jpg",
         isBakedBuilder: true
@@ -218,72 +266,90 @@ let menuData = [
     {
         id: 16,
         nameRU: "Ролл с лососем",
+        nameEN: "Salmon Roll",
         nameKR: "연어 롤",
         descriptionRU: "Простой ролл с лососем",
+        descriptionEN: "Simple salmon roll",
         descriptionKR: "기본 연어 롤",
         price: 5000,
         category: "classic",
         portionRU: "6шт",
+        portionEN: "6pcs",
         portionKR: "6개",
         image: "pic/photo_31_2026-02-10_18-12-04.jpg"
     },
     {
         id: 17,
         nameRU: "Ролл с угрём",
+        nameEN: "Eel Roll",
         nameKR: "훈제 장어 롤",
         descriptionRU: "Копчёный угорь",
+        descriptionEN: "Smoked eel",
         descriptionKR: "훈제 장어",
         price: 6000,
         category: "classic",
         portionRU: "6шт",
+        portionEN: "6pcs",
         portionKR: "6개",
         image: "pic/photo_29_2026-02-10_18-12-04.jpg"
     },
     {
         id: 18,
         nameRU: "Ролл с тунцом",
+        nameEN: "Tuna Roll",
         nameKR: "참치 롤",
         descriptionRU: "Свежий тунец",
+        descriptionEN: "Fresh tuna",
         descriptionKR: "신선한 참치",
         price: 6000,
         category: "classic",
         portionRU: "6шт",
+        portionEN: "6pcs",
         portionKR: "6개",
         image: "pic/photo_30_2026-02-10_18-12-04.jpg"
     },
     {
         id: 19,
         nameRU: "Ролл с гребешком",
+        nameEN: "Scallop Roll",
         nameKR: "가리비 롤",
         descriptionRU: "Нежный гребешок",
+        descriptionEN: "Tender scallop",
         descriptionKR: "부드러운 가리비",
         price: 6000,
         category: "classic",
         portionRU: "6шт",
+        portionEN: "6pcs",
         portionKR: "6개",
         image: "placeholder-scallop-cucumber.jpg"
     },
     {
         id: 20,
         nameRU: "Ролл с огурцом",
+        nameEN: "Cucumber Roll",
         nameKR: "오이 롤",
         descriptionRU: "Вегетарианский",
+        descriptionEN: "Vegetarian",
         descriptionKR: "채식",
         price: 3500,
         category: "classic",
         portionRU: "6шт",
+        portionEN: "6pcs",
         portionKR: "6개",
         image: "pic/photo_32_2026-02-10_18-12-04.jpg"
     },
     {
         id: 21,
         nameRU: "Авокадо ролл",
+        nameEN: "Avocado Roll",
         nameKR: "아보카도 롤",
         descriptionRU: "Свежее авокадо",
+        descriptionEN: "Fresh avocado",
         descriptionKR: "신선한 아보카도",
         price: 4000,
         category: "classic",
         portionRU: "6шт",
+        portionEN: "6pcs",
         portionKR: "6개",
         image: "pic/photo_33_2026-02-10_18-12-04.jpg"
     },
@@ -292,96 +358,120 @@ let menuData = [
     {
         id: 22,
         nameRU: "Калифорния с лососем",
+        nameEN: "California Salmon",
         nameKR: "연어 캘리포니아 롤",
         descriptionRU: "Лосось, авокадо, огурец, майонез, икра тобико",
+        descriptionEN: "Salmon, avocado, cucumber, mayo, tobiko roe",
         descriptionKR: "연어, 아보카도, 오이, 마요네즈, 날치알(토비코)",
         price: 10000,
         category: "rolls",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/photo_14_2026-02-10_18-12-04.jpg"
     },
     {
         id: 23,
         nameRU: "Ролл Креветка темпура",
+        nameEN: "Shrimp Tempura Roll",
         nameKR: "새우 텐푸라 롤",
         descriptionRU: "Креветка в кляре, авокадо, огурец, сыр Филадельфия, панировка фурикаке",
+        descriptionEN: "Tempura shrimp, avocado, cucumber, cream cheese, furikake coating",
         descriptionKR: "튀김 새우, 아보카도, 오이, 크림치즈, 후리카케",
         price: 13000,
         category: "rolls",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/photo_12_2026-02-10_18-12-04.jpg"
     },
     {
         id: 24,
         nameRU: "Калифорния с крабом",
+        nameEN: "California Crab",
         nameKR: "게살 캘리포니아 롤",
         descriptionRU: "Крабовые палочки, авокадо, огурец, майонез, икра тобико",
+        descriptionEN: "Crab sticks, avocado, cucumber, mayo, tobiko roe",
         descriptionKR: "게살, 아보카도, 오이, 마요네즈, 날치알",
         price: 10000,
         category: "rolls",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/photo_19_2026-02-10_18-12-04.jpg"
     },
     {
         id: 25,
         nameRU: "Горячий ролл с лососем",
+        nameEN: "Hot Salmon Roll",
         nameKR: "연어 핫 롤",
         descriptionRU: "Лосось, авокадо, огурец, сыр Филадельфия",
+        descriptionEN: "Salmon, avocado, cucumber, cream cheese",
         descriptionKR: "연어, 아보카도, 오이, 크림치즈",
         price: 13000,
         category: "rolls",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/photo_11_2026-02-10_18-12-04.jpg"
     },
     {
         id: 26,
         nameRU: "Фурикаке",
+        nameEN: "Furikake Roll",
         nameKR: "연어 후리카케 롤",
         descriptionRU: "Лосось в кляре, авокадо, огурец, спайси соус, хрустящий лук, панировка фурикаке",
+        descriptionEN: "Tempura salmon, avocado, cucumber, spicy sauce, crispy onion, furikake coating",
         descriptionKR: "튀김 연어, 아보카도, 오이, 스파이시 소스, 양파, 후리카케",
         price: 10000,
         category: "rolls",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/photo_13_2026-02-10_18-12-04.jpg"
     },
     {
         id: 27,
         nameRU: "Горячий ролл с угрём",
+        nameEN: "Hot Eel Roll",
         nameKR: "훈제 장어 핫 롤",
         descriptionRU: "Угорь, авокадо, огурец, сыр Филадельфия",
+        descriptionEN: "Eel, avocado, cucumber, cream cheese",
         descriptionKR: "훈제 장어, 아보카도, 오이, 크림치즈",
         price: 13000,
         category: "rolls",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/photo_10_2026-02-10_18-12-04.jpg"
     },
     {
         id: 28,
         nameRU: "Филадельфия",
+        nameEN: "Philadelphia Roll",
         nameKR: "필라델피아 롤",
         descriptionRU: "Лосось, сыр Филадельфия, огурец, авокадо",
+        descriptionEN: "Salmon, cream cheese, cucumber, avocado",
         descriptionKR: "연어, 크림치즈, 오이, 아보카도",
         price: 13000,
         category: "rolls",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/photo_21_2026-02-10_18-12-04.jpg"
     },
     {
         id: 29,
         nameRU: "Канада ролл",
+        nameEN: "Canada Roll",
         nameKR: "캐나다 롤",
         descriptionRU: "Угорь, лосось, сыр Филадельфия, авокадо, соус терияки, кунжут",
+        descriptionEN: "Eel, salmon, cream cheese, avocado, teriyaki sauce, sesame",
         descriptionKR: "장어, 연어, 크림치즈, 아보카도, 데리야키 소스, 참깨",
         price: 13000,
         category: "rolls",
         portionRU: "8шт",
+        portionEN: "8pcs",
         portionKR: "8개",
         image: "pic/photo_20_2026-02-10_18-12-04.jpg"
     },
@@ -390,48 +480,60 @@ let menuData = [
     {
         id: 30,
         nameRU: "Мини сет с лососем",
+        nameEN: "Mini Salmon Set",
         nameKR: "미니 연어 세트",
         descriptionRU: "Филадельфия 8шт, суши лосось 2шт",
+        descriptionEN: "Philadelphia 8pcs, salmon sushi 2pcs",
         descriptionKR: "필라델피아 8개, 연어 초밥 2개",
         price: 15000,
         category: "sets",
         portionRU: "10шт",
+        portionEN: "10pcs",
         portionKR: "10개",
         image: "pic/photo_35_2026-02-10_18-12-04.jpg"
     },
     {
         id: 32,
         nameRU: "Лосось сет",
+        nameEN: "Salmon Set",
         nameKR: "연어 세트",
         descriptionRU: "Филадельфия 8шт, лосось ролл 6шт, суши лосось 3шт, сашими лосось 110г",
+        descriptionEN: "Philadelphia 8pcs, salmon roll 6pcs, salmon sushi 3pcs, salmon sashimi 110g",
         descriptionKR: "필라델피아 8개, 연어 롤 6개, 연어 초밥 3개, 연어 사시미 110g",
         price: 40000,
         category: "sets",
         portionRU: "17шт + сашими",
+        portionEN: "17pcs + sashimi",
         portionKR: "17개 + 사시미",
         image: "pic/photo_36_2026-02-10_18-12-04.jpg"
     },
     {
         id: 33,
         nameRU: "Лучший сет роллов",
+        nameEN: "Best Roll Set",
         nameKR: "베스트 롤 세트",
         descriptionRU: "Филадельфия 8шт, Канада 8шт, Калифорния с крабом 8шт",
+        descriptionEN: "Philadelphia 8pcs, Canada 8pcs, California Crab 8pcs",
         descriptionKR: "필라델피아 8개, 캐나다 8개, 게살 캘리포니아 8개",
         price: 35000,
         category: "sets",
         portionRU: "24шт",
+        portionEN: "24pcs",
         portionKR: "24개",
         image: "pic/photo_34_2026-02-10_18-12-04.jpg"
     },
     {
         id: 34,
         nameRU: "Специальный сет роллов",
+        nameEN: "Special Roll Set",
         nameKR: "스페셜 롤 세트",
         descriptionRU: "Филадельфия 8шт, Канада 8шт, Калифорния с крабом 8шт, Фурикаке 8шт, Запечённый 4шт, Запечённый острый 4шт, Горячий лосось 4шт, Горячий угорь 4шт",
+        descriptionEN: "Philadelphia 8pcs, Canada 8pcs, California Crab 8pcs, Furikake 8pcs, Baked 4pcs, Spicy Baked 4pcs, Hot Salmon 4pcs, Hot Eel 4pcs",
         descriptionKR: "필라델피아 8개, 캐나다 8개, 게살 캘리포니아 8개, 후리카케 8개, 구운 롤 4개, 매운 구운 롤 4개, 연어 핫 롤 4개, 장어 핫 롤 4개",
         price: 70000,
         category: "sets",
         portionRU: "48шт",
+        portionEN: "48pcs",
         portionKR: "48개",
         image: "pic/photo_37_2026-02-10_18-12-04.jpg"
     }
@@ -439,23 +541,37 @@ let menuData = [
 
 // Baked Roll Builder options (fallback — overridden by Google Sheet data)
 let bakedFillings = [
-    { id: 'лосось', nameRU: 'Лосось с огурцом', nameKR: '연어 오이', image: 'pic/photo_25_2026-02-10_18-12-04.jpg' },
-    { id: 'угорь', nameRU: 'Угорь с огурцом', nameKR: '장어 오이', image: 'pic/photo_27_2026-02-10_18-12-04.jpg' },
-    { id: 'тунец', nameRU: 'Тунец с огурцом', nameKR: '참치 오이', image: 'pic/photo_30_2026-02-10_18-12-04.jpg' },
-    { id: 'гребешок', nameRU: 'Гребешок с огурцом', nameKR: '가리비 오이', image: 'pic/photo_4_2026-02-10_18-12-04.jpg' }
+    { id: 'лосось', nameRU: 'Лосось с огурцом', nameEN: 'Salmon & Cucumber', nameKR: '연어 오이', image: 'pic/photo_25_2026-02-10_18-12-04.jpg' },
+    { id: 'угорь', nameRU: 'Угорь с огурцом', nameEN: 'Eel & Cucumber', nameKR: '장어 오이', image: 'pic/photo_27_2026-02-10_18-12-04.jpg' },
+    { id: 'тунец', nameRU: 'Тунец с огурцом', nameEN: 'Tuna & Cucumber', nameKR: '참치 오이', image: 'pic/photo_30_2026-02-10_18-12-04.jpg' },
+    { id: 'гребешок', nameRU: 'Гребешок с огурцом', nameEN: 'Scallop & Cucumber', nameKR: '가리비 오이', image: 'pic/photo_4_2026-02-10_18-12-04.jpg' }
 ];
 
 let bakedToppings = [
-    { id: 'крабовая', nameRU: 'Крабовая с чесноком', nameKR: '크랩 갈릭', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
-    { id: 'терияки', nameRU: 'Терияки', nameKR: '테리야키', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
-    { id: 'спайс', nameRU: 'Спайс', nameKR: '스파이시', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
-    { id: 'унаги', nameRU: 'Унаги', nameKR: '우나기', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
-    { id: 'ассорти', nameRU: 'Ассорти (4 вкуса)', nameKR: '모듬 (4가지 맛)', image: 'pic/photo_24_2026-02-10_18-12-04.jpg' }
+    { id: 'крабовая', nameRU: 'Крабовая с чесноком', nameEN: 'Crab & Garlic', nameKR: '크랩 갈릭', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
+    { id: 'терияки', nameRU: 'Терияки', nameEN: 'Teriyaki', nameKR: '테리야키', image: 'pic/photo_23_2026-02-10_18-12-04.jpg' },
+    { id: 'спайс', nameRU: 'Спайс', nameEN: 'Spicy', nameKR: '스파이시', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
+    { id: 'унаги', nameRU: 'Унаги', nameEN: 'Unagi', nameKR: '우나기', image: 'pic/photo_22_2026-02-10_18-12-04.jpg' },
+    { id: 'ассорти', nameRU: 'Ассорти (4 вкуса)', nameEN: 'Assorted (4 flavors)', nameKR: '모듬 (4가지 맛)', image: 'pic/photo_24_2026-02-10_18-12-04.jpg' }
 ];
 
 // Cart state
 let cart = [];
 let currentLanguage = 'ru';
+
+// Trilingual helper — returns text for current language
+function t(ru, en, kr) {
+    if (currentLanguage === 'en') return en;
+    if (currentLanguage === 'kr') return kr;
+    return ru;
+}
+
+// Get localized field from an item object (name, description, portion)
+function itemField(item, field) {
+    if (currentLanguage === 'en') return item[field + 'EN'] || item[field + 'RU'];
+    if (currentLanguage === 'kr') return item[field + 'KR'];
+    return item[field + 'RU'];
+}
 let currentCategory = 'all';
 
 // Customer info localStorage
@@ -556,6 +672,7 @@ function loadMenuFromSheet() {
                     newFillings.push({
                         id: row.id || '',
                         nameRU: row.nameRU || '',
+                        nameEN: row.nameEN || '',
                         nameKR: row.nameKR || '',
                         image: row.image || ''
                     });
@@ -563,6 +680,7 @@ function loadMenuFromSheet() {
                     newToppings.push({
                         id: row.id || '',
                         nameRU: row.nameRU || '',
+                        nameEN: row.nameEN || '',
                         nameKR: row.nameKR || '',
                         image: row.image || ''
                     });
@@ -570,12 +688,15 @@ function loadMenuFromSheet() {
                     var item = {
                         id: parseInt(row.id) || 0,
                         nameRU: row.nameRU || '',
+                        nameEN: row.nameEN || '',
                         nameKR: row.nameKR || '',
                         descriptionRU: row.descriptionRU || '',
+                        descriptionEN: row.descriptionEN || '',
                         descriptionKR: row.descriptionKR || '',
                         price: parseInt(row.price) || 0,
                         category: row.category || '',
                         portionRU: row.portionRU || row.portionRu || '',
+                        portionEN: row.portionEN || '',
                         portionKR: row.portionKR || '',
                         image: row.image || ''
                     };
@@ -609,11 +730,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Menu rendering
 const categoryNames = {
-    sushi:   { ru: 'СУШИ',               kr: '초밥' },
-    classic: { ru: 'КЛАССИЧЕСКИЕ РОЛЛЫ',  kr: '클래식 롤' },
-    baked:   { ru: 'ЗАПЕЧЁННЫЕ',          kr: '구운 롤' },
-    rolls:   { ru: 'РОЛЛЫ',              kr: '롤' },
-    sets:    { ru: 'СЕТЫ',               kr: '세트' }
+    sushi:   { ru: 'СУШИ',               en: 'SUSHI',          kr: '초밥' },
+    classic: { ru: 'КЛАССИЧЕСКИЕ РОЛЛЫ',  en: 'CLASSIC ROLLS',  kr: '클래식 롤' },
+    baked:   { ru: 'ЗАПЕЧЁННЫЕ',          en: 'BAKED ROLLS',    kr: '구운 롤' },
+    rolls:   { ru: 'РОЛЛЫ',              en: 'SPECIALTY ROLLS', kr: '롤' },
+    sets:    { ru: 'СЕТЫ',               en: 'SETS',            kr: '세트' }
 };
 
 const categoryOrder = ['sushi', 'classic', 'baked', 'rolls', 'sets'];
@@ -631,14 +752,14 @@ function applyImagePositions() {
 }
 
 function renderMenuItemHTML(item) {
-    const name = currentLanguage === 'ru' ? item.nameRU : item.nameKR;
-    const desc = currentLanguage === 'ru' ? item.descriptionRU : item.descriptionKR;
-    const portion = currentLanguage === 'ru' ? item.portionRU : item.portionKR;
+    const name = itemField(item, 'name');
+    const desc = itemField(item, 'description');
+    const portion = itemField(item, 'portion');
     const clickAction = item.isBakedBuilder ? `openBakedBuilder()` : `openItemDetail(${item.id})`;
     const addAction = item.isBakedBuilder ? `event.stopPropagation(); openBakedBuilder()` : `event.stopPropagation(); addToCart(${item.id})`;
     const addLabel = item.isBakedBuilder
-        ? (currentLanguage === 'ru' ? '🔧 СОБРАТЬ' : '🔧 만들기')
-        : (currentLanguage === 'ru' ? '+ В КОРЗИНУ' : '+ 담기');
+        ? t('🔧 СОБРАТЬ', '🔧 BUILD', '🔧 만들기')
+        : t('+ В КОРЗИНУ', '+ ADD TO CART', '+ 담기');
     return `
         <div class="menu-item" data-category="${item.category}" onclick="${clickAction}">
             <div class="menu-item-image-wrap">
@@ -667,7 +788,7 @@ function renderMenu() {
         // Single category — show header + grid
         const items = menuData.filter(item => item.category === currentCategory);
         const catName = categoryNames[currentCategory];
-        const label = currentLanguage === 'ru' ? catName.ru : catName.kr;
+        const label = catName[currentLanguage] || catName.ru;
 
         var sectionHTML = '<div class="menu-section">';
         sectionHTML += '<div class="menu-section-header">';
@@ -684,7 +805,7 @@ function renderMenu() {
             var items = menuData.filter(function(item) { return item.category === cat; });
             if (items.length === 0) return;
             var catName = categoryNames[cat];
-            var label = currentLanguage === 'ru' ? catName.ru : catName.kr;
+            var label = catName[currentLanguage] || catName.ru;
 
             allHTML += '<div class="menu-section" id="section-' + cat + '">';
             allHTML += '<div class="menu-section-header">';
@@ -705,15 +826,16 @@ function openItemDetail(itemId) {
 
     const overlay = document.getElementById('itemDetailOverlay');
     const detail = document.getElementById('itemDetail');
-    const name = currentLanguage === 'ru' ? item.nameRU : item.nameKR;
-    const desc = currentLanguage === 'ru' ? item.descriptionRU : item.descriptionKR;
-    const portion = currentLanguage === 'ru' ? item.portionRU : item.portionKR;
-    const ingredientsLabel = currentLanguage === 'ru' ? 'СОСТАВ' : '재료';
-    const nutrientsLabel = currentLanguage === 'ru' ? 'ПИЩЕВАЯ ЦЕННОСТЬ' : '영양 정보';
-    const nutrientsPlaceholder = currentLanguage === 'ru'
-        ? 'Информация о пищевой ценности скоро будет добавлена.'
-        : '영양 정보는 곧 추가될 예정입니다.';
-    const addText = currentLanguage === 'ru' ? '+ В КОРЗИНУ' : '+ 담기';
+    const name = itemField(item, 'name');
+    const desc = itemField(item, 'description');
+    const portion = itemField(item, 'portion');
+    const ingredientsLabel = t('СОСТАВ', 'INGREDIENTS', '재료');
+    const nutrientsLabel = t('ПИЩЕВАЯ ЦЕННОСТЬ', 'NUTRITION INFO', '영양 정보');
+    const nutrientsPlaceholder = t(
+        'Информация о пищевой ценности скоро будет добавлена.',
+        'Nutrition information will be added soon.',
+        '영양 정보는 곧 추가될 예정입니다.');
+    const addText = t('+ В КОРЗИНУ', '+ ADD TO CART', '+ 담기');
 
     detail.innerHTML = `
         <div class="item-detail-image-wrap">
@@ -765,26 +887,26 @@ function openBakedBuilder() {
     var addText = document.getElementById('builderAddText');
     var addBtn = document.getElementById('bakedAddBtn');
 
-    title.textContent = currentLanguage === 'ru' ? 'Собери свой запечённый ролл' : '나만의 구운 롤 만들기';
-    addText.textContent = currentLanguage === 'ru' ? '+ В КОРЗИНУ — ₩' + price.toLocaleString() : '+ 담기 — ₩' + price.toLocaleString();
+    title.textContent = t('Собери свой запечённый ролл', 'Build Your Baked Roll', '나만의 구운 롤 만들기');
+    addText.textContent = t('+ В КОРЗИНУ', '+ ADD TO CART', '+ 담기') + ' — ₩' + price.toLocaleString();
     addBtn.disabled = true;
 
-    var fillingLabel = currentLanguage === 'ru' ? 'Выберите начинку' : '속 재료 선택';
-    var toppingLabel = currentLanguage === 'ru' ? 'Выберите топпинг' : '토핑 선택';
+    var fillingLabel = t('Выберите начинку', 'Choose a filling', '속 재료 선택');
+    var toppingLabel = t('Выберите топпинг', 'Choose a topping', '토핑 선택');
 
     var fillingsHTML = bakedFillings.map(function(f) {
-        var n = currentLanguage === 'ru' ? f.nameRU : f.nameKR;
+        var n = itemField(f, 'name');
         return '<div class="builder-option" data-id="' + f.id + '" onclick="selectFilling(\'' + f.id + '\', this)">' +
             '<span class="builder-check">✓</span>' +
             '<img src="' + f.image + '" alt="' + n + '">' +
             '<span>' + n + '</span></div>';
     }).join('');
 
-    var toppingsHTML = bakedToppings.map(function(t) {
-        var n = currentLanguage === 'ru' ? t.nameRU : t.nameKR;
-        return '<div class="builder-option" data-id="' + t.id + '" onclick="selectTopping(\'' + t.id + '\', this)">' +
+    var toppingsHTML = bakedToppings.map(function(tp) {
+        var n = itemField(tp, 'name');
+        return '<div class="builder-option" data-id="' + tp.id + '" onclick="selectTopping(\'' + tp.id + '\', this)">' +
             '<span class="builder-check">✓</span>' +
-            '<img src="' + t.image + '" alt="' + n + '">' +
+            '<img src="' + tp.image + '" alt="' + n + '">' +
             '<span>' + n + '</span></div>';
     }).join('');
 
@@ -860,9 +982,11 @@ function addBakedToCart() {
             id: Date.now(),
             compositeId: compositeId,
             nameRU: 'Запечённый: ' + filling.nameRU + ' + ' + topping.nameRU,
+            nameEN: 'Baked: ' + (filling.nameEN || filling.nameRU) + ' + ' + (topping.nameEN || topping.nameRU),
             nameKR: '구운 롤: ' + filling.nameKR + ' + ' + topping.nameKR,
             price: price,
             portionRU: '8шт',
+            portionEN: '8pcs',
             portionKR: '8개',
             image: topping.image,
             quantity: 1
@@ -1002,14 +1126,16 @@ function updateCartDisplay() {
     var deliveryInfo = document.getElementById('cartDeliveryInfo');
     if (deliveryInfo && cart.length > 0) {
         if (totalPrice >= 30000) {
-            deliveryInfo.innerHTML = currentLanguage === 'ru'
-                ? '🚗 Доставка по Дунпо: <strong style="color:#2a7d2a;">БЕСПЛАТНО</strong>'
-                : '🚗 둔포면 배달: <strong style="color:#2a7d2a;">무료</strong>';
+            deliveryInfo.innerHTML = t(
+                '🚗 Доставка по Дунпо: <strong style="color:#2a7d2a;">БЕСПЛАТНО</strong>',
+                '🚗 Dunpo delivery: <strong style="color:#2a7d2a;">FREE</strong>',
+                '🚗 둔포면 배달: <strong style="color:#2a7d2a;">무료</strong>');
         } else {
             var remaining = (30000 - totalPrice).toLocaleString();
-            deliveryInfo.innerHTML = currentLanguage === 'ru'
-                ? '🚗 Доставка: ₩5,000 — ещё ₩' + remaining + ' до бесплатной'
-                : '🚗 배달비: ₩5,000 — 무료까지 ₩' + remaining + ' 남음';
+            deliveryInfo.innerHTML = t(
+                '🚗 Доставка: ₩5,000 — ещё ₩' + remaining + ' до бесплатной',
+                '🚗 Delivery: ₩5,000 — ₩' + remaining + ' more for free delivery',
+                '🚗 배달비: ₩5,000 — 무료까지 ₩' + remaining + ' 남음');
         }
     } else if (deliveryInfo) {
         deliveryInfo.innerHTML = '';
@@ -1018,7 +1144,7 @@ function updateCartDisplay() {
     if (cart.length === 0) {
         cartItems.innerHTML = `
             <div class="empty-cart">
-                <p>${currentLanguage === 'ru' ? 'Корзина пуста' : '장바구니가 비어 있습니다'}</p>
+                <p>${t('Корзина пуста', 'Your cart is empty', '장바구니가 비어 있습니다')}</p>
             </div>
         `;
     } else {
@@ -1026,7 +1152,7 @@ function updateCartDisplay() {
             <div class="cart-item">
                 <img src="${item.image}" alt="${item.nameRU}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2280%22 height=%2280%22/%3E%3C/svg%3E'">
                 <div class="cart-item-details">
-                    <div class="cart-item-name">${currentLanguage === 'ru' ? item.nameRU : item.nameKR}</div>
+                    <div class="cart-item-name">${itemField(item, 'name')}</div>
                     <div class="cart-item-price">₩${item.price.toLocaleString()}</div>
                     <div class="quantity-controls">
                         <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
@@ -1048,7 +1174,7 @@ function toggleCart() {
 // Checkout functions
 function openCheckout() {
     if (cart.length === 0) {
-        alert(currentLanguage === 'ru' ? 'Корзина пуста!' : '장바구니가 비어 있습니다!');
+        alert(t('Корзина пуста!', 'Your cart is empty!', '장바구니가 비어 있습니다!'));
         return;
     }
 
@@ -1080,13 +1206,13 @@ function renderOrderSummary() {
     var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.quantity); }, 0);
     var deliveryCost = getDeliveryCost();
     var grandTotal = subtotal + deliveryCost;
-    var headerText = currentLanguage === 'ru' ? 'ВАШ ЗАКАЗ' : '주문 내역';
-    var deliveryLabel = currentLanguage === 'ru' ? 'Доставка' : '배달비';
-    var totalLabel = currentLanguage === 'ru' ? 'ИТОГО' : '합계';
-    var freeText = currentLanguage === 'ru' ? 'бесплатно' : '무료';
+    var headerText = t('ВАШ ЗАКАЗ', 'YOUR ORDER', '주문 내역');
+    var deliveryLabel = t('Доставка', 'Delivery', '배달비');
+    var totalLabel = t('ИТОГО', 'TOTAL', '합계');
+    var freeText = t('бесплатно', 'free', '무료');
 
     var itemsHTML = cart.map(function(item) {
-        var name = currentLanguage === 'ru' ? item.nameRU : item.nameKR;
+        var name = itemField(item, 'name');
         var lineTotal = item.price * item.quantity;
         return '<div class="order-summary-item">' +
             '<span class="order-summary-item-name">' + name + '</span>' +
@@ -1295,14 +1421,15 @@ function forwardGeocode(query) {
 
 function getMyLocation() {
     if (!navigator.geolocation) {
-        alert(currentLanguage === 'ru'
-            ? 'Геолокация не поддерживается вашим браузером'
-            : '브라우저에서 위치 서비스를 지원하지 않습니다');
+        alert(t(
+            'Геолокация не поддерживается вашим браузером',
+            'Geolocation is not supported by your browser',
+            '브라우저에서 위치 서비스를 지원하지 않습니다'));
         return;
     }
 
     const btn = document.querySelector('.my-address-btn');
-    btn.textContent = currentLanguage === 'ru' ? '⏳ Поиск...' : '⏳ 검색 중...';
+    btn.textContent = t('⏳ Поиск...', '⏳ Searching...', '⏳ 검색 중...');
 
     navigator.geolocation.getCurrentPosition(
         function(position) {
@@ -1317,20 +1444,22 @@ function getMyLocation() {
             setTimeout(function() {
                 setMapMarker(lat, lng);
                 reverseGeocode(lat, lng);
-                btn.textContent = currentLanguage === 'ru' ? '📍 Мой адрес' : '📍 내 위치';
+                btn.textContent = t('📍 Мой адрес', '📍 My address', '📍 내 위치');
             }, 200);
         },
         function(error) {
-            btn.textContent = currentLanguage === 'ru' ? '📍 Мой адрес' : '📍 내 위치';
+            btn.textContent = t('📍 Мой адрес', '📍 My address', '📍 내 위치');
             var msg = '';
             if (error.code === 1) {
-                msg = currentLanguage === 'ru'
-                    ? 'Доступ к геолокации запрещён. Разрешите в настройках браузера.'
-                    : '위치 권한이 거부되었습니다. 브라우저 설정에서 허용해주세요.';
+                msg = t(
+                    'Доступ к геолокации запрещён. Разрешите в настройках браузера.',
+                    'Location access denied. Please allow it in your browser settings.',
+                    '위치 권한이 거부되었습니다. 브라우저 설정에서 허용해주세요.');
             } else {
-                msg = currentLanguage === 'ru'
-                    ? 'Не удалось определить местоположение'
-                    : '위치를 확인할 수 없습니다';
+                msg = t(
+                    'Не удалось определить местоположение',
+                    'Unable to determine your location',
+                    '위치를 확인할 수 없습니다');
             }
             alert(msg);
         },
@@ -1362,9 +1491,10 @@ function submitOrder(event) {
     if (orderType === 'delivery') {
         var addr = document.getElementById('deliveryAddress').value;
         if (!isInDeliveryZone(addr)) {
-            alert(currentLanguage === 'ru'
-                ? 'Доставка доступна только в Дунпо и Анджонри. Пожалуйста, выберите адрес в зоне доставки.'
-                : '배달은 둔포면과 안중리 지역만 가능합니다. 배달 가능 지역의 주소를 선택해주세요.');
+            alert(t(
+                'Доставка доступна только в Дунпо и Анджонри. Пожалуйста, выберите адрес в зоне доставки.',
+                'Delivery is available only in Dunpo and Anjungri. Please choose an address within the delivery zone.',
+                '배달은 둔포면과 안중리 지역만 가능합니다. 배달 가능 지역의 주소를 선택해주세요.'));
             return;
         }
     }
@@ -1409,7 +1539,7 @@ function openPaymentTimer(orderData) {
     var modal = document.getElementById('paymentTimerModal');
     document.getElementById('paymentAmount').textContent = '₩' + orderData.total.toLocaleString();
     document.getElementById('paymentOrderNumber').innerHTML =
-        (currentLanguage === 'ru' ? 'Заказ №' : '주문번호 ') + '<strong>' + orderData.orderNumber + '</strong>';
+        t('Заказ №', 'Order #', '주문번호 ') + '<strong>' + orderData.orderNumber + '</strong>';
     document.getElementById('paymentCountdown').textContent = '20:00';
     document.getElementById('paymentCountdown').classList.remove('urgent');
     document.getElementById('paymentTimerBarFill').style.width = '100%';
@@ -1465,16 +1595,17 @@ function cancelPaymentTimer() {
     pendingOrderData = null;
 
     // Re-open checkout so user can change payment or re-order
-    alert(currentLanguage === 'ru' ? 'Заказ отменён.' : '주문이 취소되었습니다.');
+    alert(t('Заказ отменён.', 'Order cancelled.', '주문이 취소되었습니다.'));
 }
 
 function declineOrder() {
     document.getElementById('paymentTimerModal').classList.remove('active');
     document.body.style.overflow = '';
     pendingOrderData = null;
-    alert(currentLanguage === 'ru'
-        ? 'Время оплаты истекло. Заказ отменён.'
-        : '결제 시간이 초과되었습니다. 주문이 취소되었습니다.');
+    alert(t(
+        'Время оплаты истекло. Заказ отменён.',
+        'Payment time expired. Order cancelled.',
+        '결제 시간이 초과되었습니다. 주문이 취소되었습니다.'));
 }
 
 function sendTelegramNotification(orderData) {
@@ -1553,14 +1684,14 @@ function showSuccess(orderData) {
     document.getElementById('orderNumber').textContent = orderData.orderNumber;
 
     var fullAddr = orderData.deliveryAddress;
-    if (orderData.deliveryFlat) fullAddr += ', ' + (currentLanguage === 'ru' ? 'кв.' : '호') + orderData.deliveryFlat;
+    if (orderData.deliveryFlat) fullAddr += ', ' + t('кв.', 'apt.', '호') + orderData.deliveryFlat;
 
     const orderTypeText = orderData.orderType === 'pickup'
-        ? (currentLanguage === 'ru' ? '🏪 Самовывоз' : '🏪 픽업')
-        : (currentLanguage === 'ru' ? '🚗 Доставка: ' + fullAddr : '🚗 배달: ' + fullAddr);
+        ? t('🏪 Самовывоз', '🏪 Pickup', '🏪 픽업')
+        : t('🚗 Доставка: ' + fullAddr, '🚗 Delivery: ' + fullAddr, '🚗 배달: ' + fullAddr);
 
     document.getElementById('orderTypeDisplay').innerHTML = '<p>' + orderTypeText + '</p>';
-    document.getElementById('orderTotalDisplay').innerHTML = '<p>' + (currentLanguage === 'ru' ? 'Итого:' : '합계:') + ' <strong>₩' + orderData.total.toLocaleString() + '</strong></p>';
+    document.getElementById('orderTotalDisplay').innerHTML = '<p>' + t('Итого:', 'Total:', '합계:') + ' <strong>₩' + orderData.total.toLocaleString() + '</strong></p>';
 
     successModal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -1575,13 +1706,15 @@ function closeSuccess() {
 
 // Language toggle
 function toggleLanguage() {
-    // Toggle the language
+    // Cycle: RU → EN → KR → RU
     if (currentLanguage === 'ru') {
+        currentLanguage = 'en';
+    } else if (currentLanguage === 'en') {
         currentLanguage = 'kr';
     } else {
         currentLanguage = 'ru';
     }
-    
+
     // Update the button text
     const langText = document.getElementById('langText');
     if (langText) {
@@ -1592,28 +1725,33 @@ function toggleLanguage() {
     if (stickyLang) {
         stickyLang.textContent = currentLanguage.toUpperCase();
     }
-    
+
     // Update all page text
     updateLanguage();
-    
+
     // Re-render menu with new language
     renderMenu();
 }
 
 function updateLanguage() {
-    // Update the html lang attribute for accessibility
-    document.documentElement.lang = currentLanguage === 'ru' ? 'ru' : 'ko';
+    var langMap = { ru: 'ru', en: 'en', kr: 'ko' };
+    document.documentElement.lang = langMap[currentLanguage] || 'ru';
 
-    document.querySelectorAll('[data-ru]').forEach(element => {
-        const text = currentLanguage === 'ru' ? element.getAttribute('data-ru') : element.getAttribute('data-kr');
+    document.querySelectorAll('[data-ru]').forEach(function(element) {
+        var text;
+        if (currentLanguage === 'en') {
+            text = element.getAttribute('data-en') || element.getAttribute('data-ru');
+        } else if (currentLanguage === 'kr') {
+            text = element.getAttribute('data-kr');
+        } else {
+            text = element.getAttribute('data-ru');
+        }
         if (text) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = text;
             } else if (element.tagName === 'BUTTON') {
-                // For buttons, preserve any HTML like emojis
                 element.innerHTML = text;
             } else {
-                // For regular text elements (including <option>)
                 element.textContent = text;
             }
         }
