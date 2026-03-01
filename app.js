@@ -309,21 +309,6 @@ let menuData = [
         image: "pic/photo_30_2026-02-10_18-12-04.jpg"
     },
     {
-        id: 19,
-        nameRU: "Ролл с гребешком",
-        nameEN: "Scallop Roll",
-        nameKR: "가리비 롤",
-        descriptionRU: "Нежный гребешок",
-        descriptionEN: "Tender scallop",
-        descriptionKR: "부드러운 가리비",
-        price: 6000,
-        category: "classic",
-        portionRU: "6шт",
-        portionEN: "6pcs",
-        portionKR: "6개",
-        image: "placeholder-scallop-cucumber.jpg"
-    },
-    {
         id: 20,
         nameRU: "Ролл с огурцом",
         nameEN: "Cucumber Roll",
