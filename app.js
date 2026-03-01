@@ -1362,7 +1362,7 @@ var deliveryZoneValid = false;
 
 function isInDeliveryZone(address) {
     if (!address) return false;
-    // Allow Dunpo-myeon (둔포) and Anjung (안중)
+    // Allow Dunpo-myeon (둔포) and Anjeongri (안중)
     return address.indexOf('둔포') !== -1 || address.indexOf('안중') !== -1;
 }
 
@@ -1478,7 +1478,7 @@ function submitOrder(event) {
         if (!isInDeliveryZone(addr)) {
             alert(t(
                 'Доставка доступна только в Дунпо и Анджонри. Пожалуйста, выберите адрес в зоне доставки.',
-                'Delivery is available only in Dunpo and Anjungri. Please choose an address within the delivery zone.',
+                'Delivery is available only in Dunpo and Anjeongri. Please choose an address within the delivery zone.',
                 '배달은 둔포면과 안중리 지역만 가능합니다. 배달 가능 지역의 주소를 선택해주세요.'));
             return;
         }
