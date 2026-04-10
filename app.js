@@ -589,12 +589,12 @@ function loadCustomerInfo() {
 
 // CSV parser (handles quoted fields with commas)
 function parseCSV(text) {
-    var lines = text.trim().split('\n');
-    var headers = parseCSVLine(lines[0]);
+    var rows = parseCSVRows(text.trim());
+    if (rows.length === 0) return [];
+    var headers = rows[0];
     var result = [];
-    for (var i = 1; i < lines.length; i++) {
-        if (!lines[i].trim()) continue;
-        var values = parseCSVLine(lines[i]);
+    for (var i = 1; i < rows.length; i++) {
+        var values = rows[i];
         var obj = {};
         for (var j = 0; j < headers.length; j++) {
             obj[headers[j].trim()] = (values[j] || '').trim();
@@ -604,14 +604,15 @@ function parseCSV(text) {
     return result;
 }
 
-function parseCSVLine(line) {
-    var result = [];
+function parseCSVRows(text) {
+    var rows = [];
+    var row = [];
     var current = '';
     var inQuotes = false;
-    for (var i = 0; i < line.length; i++) {
-        var ch = line[i];
+    for (var i = 0; i < text.length; i++) {
+        var ch = text[i];
         if (inQuotes) {
-            if (ch === '"' && line[i + 1] === '"') {
+            if (ch === '"' && text[i + 1] === '"') {
                 current += '"';
                 i++;
             } else if (ch === '"') {
@@ -623,15 +624,22 @@ function parseCSVLine(line) {
             if (ch === '"') {
                 inQuotes = true;
             } else if (ch === ',') {
-                result.push(current);
+                row.push(current);
                 current = '';
+            } else if (ch === '\n' || (ch === '\r' && text[i + 1] === '\n')) {
+                if (ch === '\r') i++;
+                row.push(current);
+                current = '';
+                if (row.some(function(v) { return v.trim() !== ''; })) rows.push(row);
+                row = [];
             } else {
                 current += ch;
             }
         }
     }
-    result.push(current);
-    return result;
+    row.push(current);
+    if (row.some(function(v) { return v.trim() !== ''; })) rows.push(row);
+    return rows;
 }
 
 function loadMenuFromSheet() {
