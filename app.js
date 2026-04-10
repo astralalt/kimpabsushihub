@@ -526,10 +526,10 @@ let menuData = [
 
 // Baked Roll Builder options (fallback — overridden by Google Sheet data)
 let bakedFillings = [
-    { id: 'лосось', nameRU: 'Лосось с огурцом', nameEN: 'Salmon & Cucumber', nameKR: '연어 오이', image: 'pic/Запечённый  лосось с огурцом.jpg' },
-    { id: 'угорь', nameRU: 'Угорь с огурцом', nameEN: 'Eel & Cucumber', nameKR: '장어 오이', image: 'pic/Запечённый  угорь с огурцом.jpg' },
-    { id: 'тунец', nameRU: 'Тунец с огурцом', nameEN: 'Tuna & Cucumber', nameKR: '참치 오이', image: 'pic/Запечённый  тунец с огурцом.jpg' },
-    { id: 'гребешок', nameRU: 'Гребешок с огурцом', nameEN: 'Scallop & Cucumber', nameKR: '가리비 오이', image: 'pic/Запечённый  гребешок с огурцом.jpg' }
+    { id: 'лосось', nameRU: 'Лосось с огурцом', nameEN: 'Salmon & Cucumber', nameKR: '연어 오이', image: 'pic/Запечённый лосось с огурцом.jpg' },
+    { id: 'угорь', nameRU: 'Угорь с огурцом', nameEN: 'Eel & Cucumber', nameKR: '장어 오이', image: 'pic/Запечённый угорь с огурцом.jpg' },
+    { id: 'тунец', nameRU: 'Тунец с огурцом', nameEN: 'Tuna & Cucumber', nameKR: '참치 오이', image: 'pic/Запечённый тунец с огурцом.jpg' },
+    { id: 'гребешок', nameRU: 'Гребешок с огурцом', nameEN: 'Scallop & Cucumber', nameKR: '가리비 오이', image: 'pic/Запечённый гребешок с огурцом.jpg' }
 ];
 
 let bakedToppings = [
