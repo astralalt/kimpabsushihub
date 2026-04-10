@@ -540,6 +540,42 @@ let bakedToppings = [
     { id: 'ассорти', nameRU: 'Ассорти (4 вкуса)', nameEN: 'Assorted (4 flavors)', nameKR: '모듬 (4가지 맛)', image: 'pic/Сырная шапка ассорти.jpg' }
 ];
 
+// Drink menu items
+let drinkItems = [
+    // Soft drinks
+    { id: 'sprite', nameRU: 'Sprite', nameEN: 'Sprite', nameKR: '스프라이트', image: 'pic/sprite.jpg', subcategory: 'soft',
+      sizes: [{ volume: '1.5L', price: 4000 }, { volume: '500ml', price: 2500 }] },
+    { id: 'cola', nameRU: 'Coca-Cola', nameEN: 'Coca-Cola', nameKR: '코카콜라', image: 'pic/cola.jpg', subcategory: 'soft',
+      sizes: [{ volume: '1.25L', price: 4000 }, { volume: '500ml', price: 2500 }] },
+    { id: 'cola-zero', nameRU: 'Coca-Cola Zero', nameEN: 'Coca-Cola Zero', nameKR: '코카콜라 제로', image: 'pic/cola-zero.jpg', subcategory: 'soft',
+      sizes: [{ volume: '1.25L', price: 4000 }, { volume: '500ml', price: 2500 }] },
+    { id: 'pepsi', nameRU: 'Pepsi', nameEN: 'Pepsi', nameKR: '펩시', image: 'pic/pepsi.jpg', subcategory: 'soft',
+      sizes: [{ volume: '1.25L', price: 4000 }, { volume: '500ml', price: 2500 }, { volume: '355ml', price: 2000 }] },
+    { id: 'pepsi-zero', nameRU: 'Pepsi Zero Lime', nameEN: 'Pepsi Zero Lime', nameKR: '펩시 제로라임', image: 'pic/pepsi-zero.jpg', subcategory: 'soft',
+      sizes: [{ volume: '1.25L', price: 4000 }, { volume: '500ml', price: 2500 }, { volume: '355ml', price: 2000 }] },
+    { id: 'cider', nameRU: 'Chilsung Cider', nameEN: 'Chilsung Cider', nameKR: '칠성사이다', image: 'pic/cider.jpg', subcategory: 'soft',
+      sizes: [{ volume: '1.25L', price: 4000 }, { volume: '500ml', price: 2500 }, { volume: '355ml', price: 2500 }] },
+    { id: 'cider-zero', nameRU: 'Chilsung Cider Zero', nameEN: 'Chilsung Cider Zero', nameKR: '칠성사이다 제로', image: 'pic/cider-zero.jpg', subcategory: 'soft',
+      sizes: [{ volume: '500ml', price: 2500 }, { volume: '355ml', price: 2500 }] },
+    { id: 'tams-orange', nameRU: 'Tams Orange', nameEN: 'Tams Orange', nameKR: '탐스쥬시오렌지', image: 'pic/tams-orange.jpg', subcategory: 'soft',
+      sizes: [{ volume: '600ml', price: 2000 }] },
+    { id: 'tams-pineapple', nameRU: 'Tams Zero Pineapple', nameEN: 'Tams Zero Pineapple', nameKR: '탐스제로파인애플', image: 'pic/tams-pineapple.jpg', subcategory: 'soft',
+      sizes: [{ volume: '600ml', price: 2000 }] },
+    { id: 'mountain-dew', nameRU: 'Mountain Dew', nameEN: 'Mountain Dew', nameKR: '마운틴듀', image: 'pic/mountain-dew.jpg', subcategory: 'soft',
+      sizes: [{ volume: '355ml', price: 2000 }] },
+    { id: 'milkis', nameRU: 'Milkis', nameEN: 'Milkis', nameKR: '밀키스', image: 'pic/milkis.jpg', subcategory: 'soft',
+      sizes: [{ volume: '340ml', price: 2000 }] },
+    // Alcohol
+    { id: 'cass', nameRU: 'CASS', nameEN: 'CASS', nameKR: '카스', image: 'pic/cass.jpg', subcategory: 'alcohol',
+      sizes: [{ volume: '500ml', price: 4000 }] },
+    { id: 'kelly', nameRU: 'KELLY', nameEN: 'KELLY', nameKR: '켈리', image: 'pic/kelly.jpg', subcategory: 'alcohol',
+      sizes: [{ volume: '500ml', price: 4000 }] },
+    { id: 'terra', nameRU: 'TERRA', nameEN: 'TERRA', nameKR: '테라', image: 'pic/terra.jpg', subcategory: 'alcohol',
+      sizes: [{ volume: '500ml', price: 4000 }] },
+    { id: 'chamisul', nameRU: 'Chamisul', nameEN: 'Chamisul', nameKR: '참이슬', image: 'pic/chamisul.jpg', subcategory: 'alcohol',
+      sizes: [{ volume: '360ml', price: 4000 }] }
+];
+
 // Cart state
 let cart = [];
 let currentLanguage = 'ru';
@@ -727,10 +763,11 @@ const categoryNames = {
     classic: { ru: 'КЛАССИЧЕСКИЕ РОЛЛЫ',  en: 'CLASSIC ROLLS',  kr: '클래식 롤' },
     baked:   { ru: 'ЗАПЕЧЁННЫЕ',          en: 'BAKED ROLLS',    kr: '구운 롤' },
     rolls:   { ru: 'РОЛЛЫ',              en: 'SPECIALTY ROLLS', kr: '롤' },
-    sets:    { ru: 'СЕТЫ',               en: 'SETS',            kr: '세트' }
+    sets:    { ru: 'СЕТЫ',               en: 'SETS',            kr: '세트' },
+    drinks:  { ru: 'НАПИТКИ',            en: 'DRINKS',          kr: '음료' }
 };
 
-const categoryOrder = ['sushi', 'classic', 'baked', 'rolls', 'sets'];
+const categoryOrder = ['sushi', 'classic', 'baked', 'rolls', 'sets', 'drinks'];
 
 // Per-image crop adjustments for photos where center crop cuts off the food
 var imagePositionMap = {
@@ -777,8 +814,11 @@ function renderMenu() {
     const container = document.getElementById('menuContainer');
     container.innerHTML = '';
 
-    if (currentCategory !== 'all') {
-        // Single category — show header + grid
+    if (currentCategory === 'drinks') {
+        // Drinks only
+        container.innerHTML = renderDrinkSection();
+    } else if (currentCategory !== 'all') {
+        // Single food category — show header + grid
         const items = menuData.filter(item => item.category === currentCategory);
         const catName = categoryNames[currentCategory];
         const label = catName[currentLanguage] || catName.ru;
@@ -795,6 +835,10 @@ function renderMenu() {
         // All categories — group with headers
         var allHTML = '';
         categoryOrder.forEach(function(cat) {
+            if (cat === 'drinks') {
+                allHTML += renderDrinkSection();
+                return;
+            }
             var items = menuData.filter(function(item) { return item.category === cat; });
             if (items.length === 0) return;
             var catName = categoryNames[cat];
@@ -883,6 +927,7 @@ function openBakedBuilder() {
     title.textContent = t('Собери свой запечённый ролл', 'Build Your Baked Roll', '나만의 구운 롤 만들기');
     addText.textContent = t('+ В КОРЗИНУ', '+ ADD TO CART', '+ 담기') + ' — ₩' + price.toLocaleString();
     addBtn.disabled = true;
+    addBtn.onclick = addBakedToCart;
 
     var fillingLabel = t('Выберите начинку', 'Choose a filling', '속 재료 선택');
     var toppingLabel = t('Выберите топпинг', 'Choose a topping', '토핑 선택');
@@ -994,6 +1039,165 @@ function addBakedToCart() {
     setTimeout(function() { cartButton.style.transform = 'scale(1)'; }, 200);
 }
 
+// Drink menu rendering and size builder
+let selectedDrinkId = null;
+let selectedDrinkSize = null;
+
+function renderDrinkCardHTML(drink) {
+    var name = itemField(drink, 'name');
+    var prices = drink.sizes.map(function(s) { return s.price; });
+    var minPrice = Math.min.apply(null, prices);
+    var maxPrice = Math.max.apply(null, prices);
+    var priceText = minPrice === maxPrice
+        ? '₩' + minPrice.toLocaleString()
+        : '₩' + minPrice.toLocaleString() + ' ~ ₩' + maxPrice.toLocaleString();
+    var singleSize = drink.sizes.length === 1;
+    var clickAction = singleSize
+        ? 'addDrinkToCart(\'' + drink.id + '\', \'' + drink.sizes[0].volume + '\')'
+        : 'openDrinkSizeBuilder(\'' + drink.id + '\')';
+    var btnAction = 'event.stopPropagation(); ' + clickAction;
+    var btnLabel = singleSize
+        ? t('+ В КОРЗИНУ', '+ ADD TO CART', '+ 담기')
+        : t('ВЫБРАТЬ', 'SELECT', '선택');
+    var badge = singleSize ? drink.sizes[0].volume : drink.sizes.map(function(s) { return s.volume; }).join(' / ');
+
+    return '<div class="menu-item" onclick="' + clickAction + '">' +
+        '<div class="menu-item-image-wrap">' +
+            '<img src="' + drink.image + '" alt="' + name + '" onerror="this.src=\'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22%23999%22 font-size=%2220%22%3E' + encodeURIComponent(name) + '%3C/text%3E%3C/svg%3E\'">' +
+            '<div class="menu-item-badge">' + badge + '</div>' +
+        '</div>' +
+        '<div class="menu-item-content">' +
+            '<h3>' + name + '</h3>' +
+            '<p class="menu-item-description"></p>' +
+            '<div class="menu-item-footer">' +
+                '<span class="price">' + priceText + '</span>' +
+                '<button class="add-to-cart" onclick="' + btnAction + '">' + btnLabel + '</button>' +
+            '</div>' +
+        '</div>' +
+    '</div>';
+}
+
+function renderDrinkSection() {
+    var softDrinks = drinkItems.filter(function(d) { return d.subcategory === 'soft'; });
+    var alcoholDrinks = drinkItems.filter(function(d) { return d.subcategory === 'alcohol'; });
+    var catName = categoryNames.drinks;
+    var label = catName[currentLanguage] || catName.ru;
+    var alcoholLabel = t('СПИРТНОЕ', 'ALCOHOL', '주류');
+
+    var html = '<div class="menu-section" id="section-drinks">';
+    html += '<div class="menu-section-header"><h2>' + label + '</h2></div>';
+    html += '<div class="menu-grid">';
+    softDrinks.forEach(function(d) { html += renderDrinkCardHTML(d); });
+    html += '</div>';
+    // Alcohol sub-header
+    html += '<div class="drink-subcategory-divider"><span>' + alcoholLabel + '</span></div>';
+    html += '<div class="menu-grid">';
+    alcoholDrinks.forEach(function(d) { html += renderDrinkCardHTML(d); });
+    html += '</div>';
+    html += '</div>';
+    return html;
+}
+
+function openDrinkSizeBuilder(drinkId) {
+    selectedDrinkId = drinkId;
+    selectedDrinkSize = null;
+
+    var drink = drinkItems.find(function(d) { return d.id === drinkId; });
+    if (!drink) return;
+
+    var overlay = document.getElementById('builderOverlay');
+    var body = document.getElementById('builderBody');
+    var title = document.getElementById('builderTitle');
+    var addText = document.getElementById('builderAddText');
+    var addBtn = document.getElementById('bakedAddBtn');
+
+    var name = itemField(drink, 'name');
+    title.textContent = name;
+    addText.textContent = t('ВЫБЕРИТЕ РАЗМЕР', 'SELECT SIZE', '사이즈 선택');
+    addBtn.disabled = true;
+    addBtn.onclick = function() { addDrinkToCart(selectedDrinkId, selectedDrinkSize); };
+
+    var sizeLabel = t('Выберите размер', 'Choose a size', '사이즈 선택');
+    var sizesHTML = drink.sizes.map(function(s) {
+        return '<div class="builder-option size-option" data-volume="' + s.volume + '" onclick="selectDrinkSize(\'' + s.volume + '\', this, ' + s.price + ')">' +
+            '<span class="builder-check">✓</span>' +
+            '<span class="size-volume">' + s.volume + '</span>' +
+            '<span class="size-price">₩' + s.price.toLocaleString() + '</span>' +
+        '</div>';
+    }).join('');
+
+    body.innerHTML =
+        '<div class="drink-builder-preview">' +
+            '<img src="' + drink.image + '" alt="' + name + '">' +
+        '</div>' +
+        '<div class="builder-step">' +
+            '<div class="builder-step-label"><span class="builder-step-num">1</span><h4>' + sizeLabel + '</h4></div>' +
+            '<div class="builder-options size-grid">' + sizesHTML + '</div>' +
+        '</div>';
+
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function selectDrinkSize(volume, el, price) {
+    if (selectedDrinkSize === volume) {
+        selectedDrinkSize = null;
+        el.classList.remove('selected');
+    } else {
+        selectedDrinkSize = volume;
+        el.parentElement.querySelectorAll('.builder-option').forEach(function(o) { o.classList.remove('selected'); });
+        el.classList.add('selected');
+    }
+    var addBtn = document.getElementById('bakedAddBtn');
+    var addText = document.getElementById('builderAddText');
+    if (selectedDrinkSize) {
+        addBtn.disabled = false;
+        addText.textContent = t('+ В КОРЗИНУ', '+ ADD TO CART', '+ 담기') + ' — ₩' + price.toLocaleString();
+    } else {
+        addBtn.disabled = true;
+        addText.textContent = t('ВЫБЕРИТЕ РАЗМЕР', 'SELECT SIZE', '사이즈 선택');
+    }
+}
+
+function addDrinkToCart(drinkId, volume) {
+    var drink = drinkItems.find(function(d) { return d.id === drinkId; });
+    if (!drink) return;
+    var size = drink.sizes.find(function(s) { return s.volume === volume; });
+    if (!size) {
+        // Single size — use first
+        size = drink.sizes[0];
+        volume = size.volume;
+    }
+
+    var compositeId = 'drink_' + drinkId + '_' + volume;
+    var existingItem = cart.find(function(i) { return i.compositeId === compositeId; });
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: Date.now(),
+            compositeId: compositeId,
+            nameRU: drink.nameRU + ' ' + volume,
+            nameEN: drink.nameEN + ' ' + volume,
+            nameKR: drink.nameKR + ' ' + volume,
+            price: size.price,
+            portionRU: volume,
+            portionEN: volume,
+            portionKR: volume,
+            image: drink.image,
+            quantity: 1
+        });
+    }
+
+    updateCartDisplay();
+    closeBuilder();
+
+    var cartButton = document.querySelector('.cart-button');
+    cartButton.style.transform = 'scale(1.1)';
+    setTimeout(function() { cartButton.style.transform = 'scale(1)'; }, 200);
+}
+
 // Category showcase — select from big cards
 function selectCategory(cat) {
     // Scroll to menu section first
@@ -1008,7 +1212,7 @@ function selectCategory(cat) {
             btn.classList.remove('active');
             var btnRU = (btn.getAttribute('data-ru') || '').toUpperCase();
             var catLabels = {
-                sushi: 'СУШИ', classic: 'КЛАССИЧЕСКИЕ', baked: 'ЗАПЕЧЁННЫЕ', rolls: 'РОЛЛЫ', sets: 'СЕТЫ'
+                sushi: 'СУШИ', classic: 'КЛАССИЧЕСКИЕ', baked: 'ЗАПЕЧЁННЫЕ', rolls: 'РОЛЛЫ', sets: 'СЕТЫ', drinks: 'НАПИТКИ'
             };
             if (catLabels[cat] && btnRU === catLabels[cat]) {
                 btn.classList.add('active');

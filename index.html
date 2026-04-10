@@ -291,10 +291,6 @@
             aspect-ratio: 4 / 3;
         }
 
-        .category-card:last-child {
-            grid-column: 2;
-        }
-
         .category-card img {
             width: 100%;
             height: 100%;
@@ -859,6 +855,70 @@
                 width: 54px;
                 height: 54px;
             }
+        }
+
+        /* Drink size builder */
+        .size-grid {
+            grid-template-columns: 1fr !important;
+            gap: 0.4rem;
+        }
+
+        .size-option {
+            flex-direction: row !important;
+            justify-content: space-between;
+            padding: 0.75rem 1rem !important;
+        }
+
+        .size-option .builder-check {
+            top: 50% !important;
+            transform: translateY(-50%);
+            right: 8px !important;
+        }
+
+        .size-volume {
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+        }
+
+        .size-price {
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            color: var(--primary-red) !important;
+        }
+
+        .drink-builder-preview {
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .drink-builder-preview img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .drink-subcategory-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .drink-subcategory-divider::before,
+        .drink-subcategory-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .drink-subcategory-divider span {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #888;
+            letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         /* Delivery detail fields */
@@ -1587,10 +1647,6 @@
                 gap: 0.6rem;
             }
 
-            .category-card:last-child {
-                grid-column: span 2;
-            }
-
             .category-card-overlay span {
                 font-size: 0.85rem;
             }
@@ -2088,6 +2144,10 @@
                 <img src="pic/photo_34_2026-02-10_18-12-04.jpg" alt="Sets">
                 <div class="category-card-overlay"><span data-ru="СЕТЫ" data-kr="세트" data-en="SETS">СЕТЫ</span></div>
             </div>
+            <div class="category-card" onclick="selectCategory('drinks')">
+                <img src="pic/drinks.jpg" alt="Drinks">
+                <div class="category-card-overlay"><span data-ru="НАПИТКИ" data-kr="음료" data-en="DRINKS">НАПИТКИ</span></div>
+            </div>
         </div>
     </section>
 
@@ -2101,6 +2161,7 @@
                     <button class="category-button" onclick="filterCategory('baked', event)" data-ru="ЗАПЕЧЁННЫЕ" data-kr="구운 롤" data-en="BAKED">ЗАПЕЧЁННЫЕ</button>
                     <button class="category-button" onclick="filterCategory('rolls', event)" data-ru="РОЛЛЫ" data-kr="롤" data-en="ROLLS">РОЛЛЫ</button>
                     <button class="category-button" onclick="filterCategory('sets', event)" data-ru="СЕТЫ" data-kr="세트" data-en="SETS">СЕТЫ</button>
+                    <button class="category-button" onclick="filterCategory('drinks', event)" data-ru="НАПИТКИ" data-kr="음료" data-en="DRINKS">НАПИТКИ</button>
                 </div>
                 <div class="lang-selector sticky-lang-selector">
                     <button class="sticky-lang-btn" onclick="toggleLangDropdown(event)">
